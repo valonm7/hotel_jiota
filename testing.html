@@ -20,533 +20,11 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: white;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Glass morphism effect */
-    .glass {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-    }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 15px;
-      transition: all 0.3s ease;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Header */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 1rem 2rem;
-      animation: slideDown 0.8s ease-out;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-      color: #fff;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-menu a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-menu a:hover {
-      color: #87ceeb;
-      transform: translateY(-2px);
-    }
-
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #87ceeb;
-      transition: width 0.3s ease;
-    }
-
-    .nav-menu a:hover::after {
-      width: 100%;
-    }
-
-    .date-badge {
-      color: white;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 2rem;
-      background: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: linear-gradient(transparent, rgba(255, 255, 255, 0.8), white);
-      z-index: 1;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(17, 67, 102, 0.3);
-      z-index: 0;
-    }
-
-    .hero-content {
-      text-align: center;
-      max-width: 800px;
-      animation: fadeInUp 1s ease-out 0.3s both;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 300;
-      color: white;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 3rem;
-      font-weight: 400;
-    }
-
-    .cta-button {
-      background: linear-gradient(45deg, #114366, #1a5f7a);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(17, 67, 102, 0.3);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      display: inline-block;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px);
-      background: linear-gradient(45deg, #1a5f7a, #2c7c95);
-      box-shadow: 0 15px 30px rgba(17, 67, 102, 0.2);
-      color: white;
-    }
-
-    /* Villa Section */
-    .villa-section {
-      padding: 5rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      background: white;
-    }
-
-    .villa-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .villa-content {
-      animation: fadeInLeft 1s ease-out;
-    }
-
-    .villa-content h2 {
-      font-size: 3rem;
-      font-weight: 300;
-      color: #114366;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .villa-content p {
-      font-size: 1.1rem;
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-
-    .villa-image {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      animation: fadeInRight 1s ease-out;
-    }
-
-    .villa-image img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .villa-image:hover img {
-      transform: scale(1.05);
-    }
-
-    /* Rooms Section */
-    .rooms-section {
-      padding: 5rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      background: white;
-    }
-
-    .rooms-header {
-      text-align: right;
-      margin-bottom: 3rem;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .rooms-header h2 {
-      font-size: 2.5rem;
-      font-weight: 300;
-      color: #114366;
-      margin-bottom: 1rem;
-    }
-
-    .rooms-header p {
-      color: #666;
-      font-size: 1.1rem;
-    }
-
-    .rooms-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .room-card {
-      padding: 2rem;
-      transition: all 0.3s ease;
-      animation: fadeInUp 1s ease-out;
-      background: rgba(17, 67, 102, 0.05);
-    }
-
-    .room-card:nth-child(2) { animation-delay: 0.2s; }
-    .room-card:nth-child(3) { animation-delay: 0.4s; }
-
-    .room-image {
-      width: 100%;
-      height: 200px;
-      border-radius: 15px;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-    }
-
-    .room-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .room-card:hover .room-image img {
-      transform: scale(1.1);
-    }
-
-    .room-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #114366;
-      margin-bottom: 0.5rem;
-    }
-
-    .room-description {
-      color: #666;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    /* Restaurant Section */
-    .restaurant-section {
-      padding: 5rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      background: white;
-    }
-
-    .restaurant-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .restaurant-content {
-      animation: fadeInLeft 1s ease-out;
-    }
-
-    .restaurant-content h2 {
-      font-size: 3rem;
-      font-weight: 300;
-      color: #114366;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .restaurant-content p {
-      font-size: 1.1rem;
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-
-    .restaurant-image {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      animation: fadeInRight 1s ease-out;
-    }
-
-    .restaurant-image img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .restaurant-image:hover img {
-      transform: scale(1.05);
-    }
-
-    /* Amenities */
-    .amenities {
-      display: flex;
-      justify-content: space-around;
-      margin: 3rem 0;
-      flex-wrap: wrap;
-      gap: 2rem;
-      background: white;
-    }
-
-    .amenity {
-      text-align: center;
-      color: #114366;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .amenity:nth-child(2) { animation-delay: 0.2s; }
-    .amenity:nth-child(3) { animation-delay: 0.4s; }
-    .amenity:nth-child(4) { animation-delay: 0.6s; }
-
-    .amenity-icon {
-      width: 60px;
-      height: 60px;
-      background: rgba(17, 67, 102, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .amenity:hover .amenity-icon {
-      background: rgba(17, 67, 102, 0.2);
-      transform: scale(1.1);
-    }
-
-    .amenity h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .amenity p {
-      font-size: 0.9rem;
-      opacity: 0.7;
-      color: #666;
-    }
-
-    /* Animations */
-    @keyframes slideDown {
-      from {
-        transform: translateY(-100px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInLeft {
-      from {
-        transform: translateX(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInRight {
-      from {
-        transform: translateX(50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .nav-menu {
-        display: none;
-      }
-
-      .villa-grid,
-      .restaurant-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .rooms-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .amenities {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero h1 {
-        font-size: 3rem;
-      }
-
-      .villa-content h2,
-      .restaurant-content h2 {
-        font-size: 2rem;
-      }
-    }
-
-    /* Floating elements */
-    .floating-element {
-      position: absolute;
-      opacity: 0.1;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .floating-element:nth-child(1) {
-      top: 20%;
-      left: 10%;
-      animation-delay: 0s;
-    }
-
-    .floating-element:nth-child(2) {
-      top: 60%;
-      right: 10%;
-      animation-delay: 2s;
-    }
-
-    .floating-element:nth-child(3) {
-      bottom: 20%;
-      left: 20%;
-      animation-delay: 4s;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <!-- Floating Elements -->
-<div class="floating-element">🏖️</div>
-<div class="floating-element">🌊</div>
-<div class="floating-element">🏝️</div>
+
 
 <!-- Header -->
 <header class="header glass">
@@ -574,18 +52,59 @@
   </div>
 </section>
 
-<!-- Villa Section -->
+<!-- Villa Section - Updated to match the photo
 <section class="villa-section">
-  <div class="villa-grid">
-    <div class="villa-content">
-      <h2>Nestled in a breathtaking coastal bay, Horizon Bay Resort is the ultimate escape for those seeking peace and luxury.</h2>
-      <p>Finding both solace and stimulus in the heart of the city, forging a path to enduring vitality.</p>
+  <div class="villa-container">
+    <div class="villa-image-container">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Luxury Villa" class="villa-main-image">
     </div>
-    <div class="villa-image">
-      <img src="/img/689020572.jpg" alt="Luxury Villa">
+    <div class="villa-content-container">
+      <div class="villa-brand">Horizon Bay Resort</div>
+      <h2 class="villa-title">
+        Nestled in a breathtaking coastal bay, Horizon Bay Resort
+        <span class="villa-emoji">🏖️</span>
+        is the ultimate escape for those
+        <span class="highlighted-text">seeking peace and luxury.</span>
+      </h2>
+      <p class="villa-subtitle">Finding both solace and stimulus in the heart of the city, forging a path to enduring vitality.</p>
     </div>
   </div>
-</section>
+</section>-->
+
+
+<div class="container py-5 px-4">
+  <!-- Header Section -->
+  <header class="mb-5 d-flex align-items-center">
+    <div class="border border-secondary-subtle rounded-3 py-2 px-4 text-sm-medium text-secondary">
+      Horizon Bay Resort
+    </div>
+  </header>
+
+  <!-- Main Content Section -->
+  <main class="row g-5 g-lg-4 align-items-start">
+    <!-- Left Column for Brand Name / Empty space in screenshot -->
+    <div class="d-none d-lg-block col-lg-6">
+      <!-- This column is intentionally left blank to push the main text to the right,
+           mimicking the layout in the screenshot where "Horizon Bay Resort" logo/text
+           is further left, and the main heading is in the middle of the screen.
+           On smaller screens, this column will collapse. -->
+    </div>
+
+    <!-- Right Column for Main Heading and Description -->
+    <div class="col-lg-6">
+      <h1 class="font-weight-bold lh-tight mb-4 display-6-custom">
+        Nestled in a breathtaking coastal bay,
+        <span class="d-block">Horizon Bay Resort
+                        <img src="/img/689020938.jpg" alt="Coastal View"
+                             class="inline-image img-fluid rounded-3 shadow-lg" style="width: 6rem; height: 4rem; object-fit: cover;">
+                        is the
+                    </span>
+        <span class="d-block">ultimate escape for those <span class="light-text">seeking</span></span>
+        <span class="d-block light-text">peace and luxury.</span>
+      </h1>
+    </div>
+  </main>
+
 
 <!-- Amenities -->
 <section class="amenities">
@@ -636,7 +155,7 @@
       <div class="room-image">
         <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Garden Retreat Room">
       </div>
-      <h3 class room-title">Garden Retreat Room</h3>
+      <h3 class="room-title">Garden Retreat Room</h3>
       <p class="room-description">Tranquil garden setting with direct access to tropical gardens.</p>
     </div>
   </div>
@@ -687,7 +206,7 @@
   }, observerOptions);
 
   // Observe animated elements
-  document.querySelectorAll('.villa-content, .villa-image, .room-card, .restaurant-content, .restaurant-image, .amenity').forEach(el => {
+  document.querySelectorAll('.villa-content-container, .villa-image-container, .room-card, .restaurant-content, .restaurant-image, .amenity').forEach(el => {
     observer.observe(el);
   });
 
