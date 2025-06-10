@@ -691,3 +691,214 @@ body {
     color: #333;
     font-size: 15px;
 }
+
+
+
+.header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 15px 0;
+    z-index: 999; /* Very high z-index to ensure it's on top */
+    background: transparent !important; /* Force transparency */
+    backdrop-filter: none !important; /* Force no backdrop filter */
+    -webkit-backdrop-filter: none !important; /* For Safari */
+    border: none !important; /* Force no border */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-menu li {
+    margin: 0 8px;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.date-badge {
+    display: flex;
+    align-items: center;
+    padding: 4px 5px 4px 15px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+}
+
+.date-text {
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.icon-wrapper {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-wrapper i {
+    color: #333;
+    font-size: 15px;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Allows content and arrow to stack vertically */
+    align-items: center;
+    justify-content: center; /* Centers main content vertically */
+    position: relative;
+    padding: 2rem;
+    background: url("img/689020575.jpg") center/cover no-repeat;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.8), white);
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(17, 67, 102, 0.3);
+    z-index: 0;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out 0.3s both;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 80px; /* Space for the scroll indicator box */
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+
+/* Updated CTA button for "Explore more" */
+.cta-button {
+    background: white; /* White background as per image */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Lighter border */
+    color: #114366; /* Dark text color */
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background: #f0f0f0; /* Slightly off-white on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+    color: #114366;
+}
+
+/* New style for the white box containing the bouncing arrow */
+.scroll-indicator-box {
+    background: white;
+    padding: 10px;
+    border-radius: 15px; /* Rounded corners for the box */
+    display: inline-flex; /* To wrap content */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out 0.5s both; /* Appear with a fade */
+    position: absolute; /* Position relative to hero */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px; /* Position it at the bottom of the hero section, adjusted from screenshot */
+    z-index: 2; /* Make sure it's above the gradients */
+}
+
+.bouncing-arrow {
+    font-size: 1.5rem; /* Larger arrow */
+    color: #114366; /* Dark blue color for the arrow */
+    text-decoration: none;
+    display: block; /* To apply bounce animation */
+    animation: bounce 2s infinite; /* Apply bounce animation */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
