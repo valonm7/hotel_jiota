@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,19 +22,26 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="header glass">
+
+
+<header class="header">
   <div class="nav-container">
     <a href="#" class="logo">Vila JIOTA</a>
     <nav>
       <ul class="nav-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#rooms">Rooms</a></li>
-        <li><a href="#dining">Dining</a></li>
-        <li><a href="#amenities">Amenities</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home">+ Home</a></li>
+        <li><a href="#rooms">+ Rooms</a></li>
+        <li><a href="#dining">+ Dining</a></li>
+        <li><a href="#amenities">+ Amenities</a></li>
+        <li><a href="#contact">+ Contact</a></li>
       </ul>
     </nav>
-    <div class="date-badge">March 15, 2024</div>
+    <div class="date-badge">
+      <span class="date-text">March 15, 2024</span>
+      <div class="icon-wrapper">
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -45,53 +51,64 @@
       Where <span id="typewriter"></span>
     </h1>
     <p class="hero-subtitle">Discover a serene coastal retreat with breathtaking views, world-class service, and unforgettable experiences</p>
-    <a href="#rooms" class="cta-button">Explore more</a>
+    <a href="#rooms" class="bouncing-arrow">
+      <i class="fas fa-chevron-down"></i>
+    </a>
   </div>
 </section>
 
+
 <div class="container py-5 px-4">
-  <header class="mb-5 d-flex align-items-center fadeinleft">
-    <div class="border border-secondary-subtle rounded-3 py-2 px-4 text-sm-medium text-secondary">
-      Horizon Bay Resort
+  <div class="row align-items-start">
+    <div class="col-lg-6">
+      <header class="mb-5 d-flex align-items-center fadeinleft">
+        <div class="border border-dark-subtle rounded-3 py-2 px-4 text-sm-medium text-dark">
+          Vila Jiota
+        </div>
+      </header>
     </div>
-  </header>
 
-  <main class="row g-5 g-lg-4 align-items-start">
-    <div class="d-none d-lg-block col-lg-6">
+    <div class="col-lg-6">
+      <main class="fadeinright">
+        <h1 class="font-weight-bold lh-tight">
+          Nestled in a breathtaking coastal bay, Vila Jiota<img src="/img/689020938.jpg" alt="Coastal View" class="inline-image img-fluid shadow-lg" style="width: 6rem; height: 4rem; object-fit: cover;">is the
+
+          ultimate escape for those <span class="light-text">seeking</span>
+          <span class="light-text">peace and luxury.</span>
+        </h1>
+      </main>
     </div>
+  </div>
 
-    <div class="col-lg-6 fadeinright">
-      <h1 class="font-weight-bold lh-tight ">
-        Nestled in a breathtaking coastal bay, Horizon Bay Resort<img src="/img/689020938.jpg" alt="Coastal View" class="inline-image img-fluid rounded-3 shadow-lg" style="width: 6rem; height: 4rem; object-fit: cover;">is the
 
-        ultimate escape for those <span class="light-text">seeking</span></span>
-        <span class="d-block light-text">peace and luxury.</span>
-      </h1>
-    </div>
-  </main>
 
   <section class="amenities" id="amenities">
     <div class="amenity fadeinleft">
-      <div class="amenity-icon">🏖️</div>
-      <h3>Private Beach</h3>
-      <p>Exclusive beachfront access</p>
+      <div class="amenity-icon">
+        <img src="img/sunrise.png" alt="Beach" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
+      </div>
+      <h3 style="color: #000000;">Beachfront Location</h3>
     </div>
     <div class="amenity fade-in">
-      <div class="amenity-icon">🌊</div>
-      <h3>Ocean Views</h3>
-      <p>Panoramic sea vistas</p>
+      <div class="amenity-icon">
+        <i class="fas fa-bed" style="color: #000000;"></i>
+      </div>
+      <h3 style="color: #000000;">Comfortable Accommodations</h3>
     </div>
     <div class="amenity fade-in">
-      <div class="amenity-icon">🍽️</div>
-      <h3>Seaside Dining</h3>
-      <p>Gourmet coastal cuisine</p>
+      <div class="amenity-icon">
+        <i class="fas fa-concierge-bell" style="color: #000000;"></i>
+      </div>
+      <h3 style="color: #000000;">Convenient Facilities</h3>
     </div>
     <div class="amenity fadeinright">
-      <div class="amenity-icon">🧘</div>
-      <h3>Exclusive Spa</h3>
-      <p>Wellness and relaxation</p>
+      <div class="amenity-icon">
+        <i class="fas fa-map-marker-alt" style="color: #000000;"></i>
+      </div>
+      <h3 style="color: #000000;">Nearby Attractions</h3>
     </div>
   </section>
+
 
   <section class="rooms-section" id="rooms">
     <div class="rooms-header fadeindown">
