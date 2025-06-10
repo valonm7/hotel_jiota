@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery - Vila JIOTA</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .gallery-hero {
+      height: 60vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/689020517.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .gallery-hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      opacity: 0.9;
+      text-align: center;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .back-button:hover {
+      background: white;
+      color: #2c3e50;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .gallery-section {
+      padding: 80px 0;
+    }
+
+    .gallery-container {
+      margin-bottom: 40px;
+    }
+
+    .gallery-filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-button {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 30px;
+      padding: 10px 20px;
+      margin: 0 10px 10px 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2c3e50;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-button:hover, .filter-button.active {
+      background: #114366;
+      color: white;
+      border-color: #114366;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      height: 250px;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      border-radius: 15px;
+    }
+
+    .gallery-item:hover .gallery-image {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 20px;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .gallery-category {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .gallery-hero p {
+        font-size: 1rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="back-button">
+  <i class="fas fa-arrow-left"></i> Back to Home
+</a>
+
+<section class="gallery-hero">
+  <div class="container text-center">
+    <h1>Our Gallery</h1>
+    <p>Explore the beauty of Vila JIOTA through our collection of stunning images</p>
+  </div>
+</section>
+
+<div class="container gallery-section">
+  <div class="gallery-container">
+    <div class="gallery-filter">
+      <button class="filter-button active" data-filter="all">All</button>
+      <button class="filter-button" data-filter="rooms">Rooms</button>
+      <button class="filter-button" data-filter="exterior">Exterior</button>
+      <button class="filter-button" data-filter="dining">Dining</button>
+      <button class="filter-button" data-filter="amenities">Amenities</button>
+      <button class="filter-button" data-filter="views">Views</button>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Rooms Images -->
+      <div class="gallery-item" data-category="rooms">
+        <a href="deluxe_apartaments_balcony/689021212.jpg" data-lightbox="gallery" data-title="Deluxe Apartment with Balcony">
+          <img src="deluxe_apartaments_balcony/689021212.jpg" alt="Deluxe Apartment" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Deluxe Apartment</h3>
+            <p class="gallery-category">Rooms</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gallery-item" data-category="rooms">
+        <a href="triple_room/689027718.jpg" data-lightbox="gallery" data-title="Triple Room">
+          <img src="triple_room/689027718.jpg" alt="Triple Room" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Triple Room</h3>
+            <p class="gallery-category">Rooms</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gallery-item" data-category="rooms">
+        <a href="deluxe_suite_with_sea_view/689032030.jpg" data-lightbox="gallery" data-title="Deluxe Suite with Sea View">
+          <img src="deluxe_suite_with_sea_view/689032030.jpg" alt="Deluxe Suite" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Deluxe Suite</h3>
+            <p class="gallery-category">Rooms</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gallery-item" data-category="rooms">
+        <a href="deluxe_double_room/689030100.jpg" data-lightbox="gallery" data-title="Deluxe Double Room">
+          <img src="deluxe_double_room/689030100.jpg" alt="Deluxe Double Room" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Deluxe Double Room</h3>
+            <p class="gallery-category">Rooms</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gallery-item" data-category="rooms">
+        <a href="king_room_with_balcony/689026885.jpg" data-lightbox="gallery" data-title="King Room with Balcony">
+          <img src="king_room_with_balcony/689026885.jpg" alt="King Room" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">King Room</h3>
+            <p class="gallery-category">Rooms</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Exterior Images -->
+      <div class="gallery-item" data-category="exterior">
+        <a href="img/689020517.jpg" data-lightbox="gallery" data-title="Vila JIOTA Exterior">
+          <img src="img/689020517.jpg" alt="Hotel Exterior" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Hotel Exterior</h3>
+            <p class="gallery-category">Exterior</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gallery-item" data-category="exterior">
+        <a href="img/689020575.jpg" data-lightbox="gallery" data-title="Vila JIOTA Entrance">
+          <img src="img/689020575.jpg" alt="Hotel Entrance" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Hotel Entrance</h3>
+            <p class="gallery-category">Exterior</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Views Images -->
+      <div class="gallery-item" data-category="views">
+        <a href="deluxe_suite_with_sea_view/689032053.jpg" data-lightbox="gallery" data-title="Sea View from Suite">
+          <img src="deluxe_suite_with_sea_view/689032053.jpg" alt="Sea View" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Sea View</h3>
+            <p class="gallery-category">Views</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gallery-item" data-category="views">
+        <a href="deluxe_apartaments_balcony/689021224.jpg" data-lightbox="gallery" data-title="Balcony View">
+          <img src="deluxe_apartaments_balcony/689021224.jpg" alt="Balcony View" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Balcony View</h3>
+            <p class="gallery-category">Views</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Amenities Images -->
+      <div class="gallery-item" data-category="amenities">
+        <a href="deluxe_apartament/689020936.jpg" data-lightbox="gallery" data-title="Bathroom">
+          <img src="deluxe_apartament/689020936.jpg" alt="Bathroom" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Luxury Bathroom</h3>
+            <p class="gallery-category">Amenities</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gallery-item" data-category="amenities">
+        <a href="deluxe_suite_with_sea_view/689032044.jpg" data-lightbox="gallery" data-title="Living Area">
+          <img src="deluxe_suite_with_sea_view/689032044.jpg" alt="Living Area" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Living Area</h3>
+            <p class="gallery-category">Amenities</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Dining Images -->
+      <div class="gallery-item" data-category="dining">
+        <a href="deluxe_apartament/689020945.jpg" data-lightbox="gallery" data-title="Dining Area">
+          <img src="deluxe_apartament/689020945.jpg" alt="Dining Area" class="gallery-image">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Dining Area</h3>
+            <p class="gallery-category">Dining</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer text-white pt-5 pb-3">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="footer-logo mb-3">
+          <a href="index.html">
+            <img src="logo1.png" width="80" height="80" alt="Footer Logo" class="img-fluid">
+          </a>
+        </div>
+        <p class="footer-description pe-4">
+          Discover unparalleled comfort and serene views at Vila JIOTA. Your perfect escape awaits.
+        </p>
+        <div class="social-icons mt-4">
+          <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="footer-heading text-uppercase mb-4">Quick Links</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="rooms.html" class="text-white text-decoration-none">Rooms</a></li>
+          <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+          <li><a href="gallery.html" class="text-white text-decoration-none">Gallery</a></li>
+          <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="footer-heading text-uppercase mb-4">Contact Us</h5>
+        <ul class="list-unstyled footer-contact-info">
+          <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Rr. Ismail Qemali, Vlorë, Albania</li>
+          <li class="mb-2"><i class="fas fa-phone me-2"></i> +355 6x xxx xxxx</li>
+          <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@vilajiota.com</li>
+          <li><i class="fas fa-globe me-2"></i> www.vilajiota.com</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="footer-heading text-uppercase mb-4">Location</h5>
+        <div class="map-placeholder" style="height: 150px; background-color: #343a40; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7);">
+          <i class="fas fa-map-marked-alt fa-3x"></i>
+        </div>
+        <p class="mt-2 text-muted">
+          Visit us for an unforgettable experience.
+        </p>
+      </div>
+
+    </div>
+    <hr class="my-4 border-light-subtle">
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="mb-0 text-muted">&copy; <span id="year"></span> Vila JIOTA. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script>
+  // Set current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Gallery filtering
+  $(document).ready(function() {
+    $('.filter-button').click(function() {
+      const value = $(this).attr('data-filter');
+      
+      $('.filter-button').removeClass('active');
+      $(this).addClass('active');
+      
+      if (value == 'all') {
+        $('.gallery-item').show('1000');
+      } else {
+        $('.gallery-item').not('[data-category="' + value + '"]').hide('1000');
+        $('.gallery-item[data-category="' + value + '"]').show('1000');
+      }
+    });
+    
+    // Lightbox configuration
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'showImageNumberLabel': false
+    });
+  });
+</script>
+
+</body>
+</html>

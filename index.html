@@ -123,16 +123,17 @@
       <ul class="nav-menu">
         <li><a href="#home">+ Home</a></li>
         <li><a href="#rooms">+ Rooms</a></li>
-        <li><a href="#dining">+ Dining</a></li>
-        <li><a href="#amenities">+ Amenities</a></li>
+        <li><a href="gallery.html">+ Gallery</a></li>
+        <li><a href="about.html">+ About US</a></li>
         <li><a href="#contact">+ Contact</a></li>
       </ul>
     </nav>
     <div class="date-badge">
-      <span class="date-text">March 15, 2024</span>
-      <div class="icon-wrapper">
+      <span class="date-text" id="current-date"></span> <div class="icon-wrapper">
+      <a href="availability.html">
         <i class="fas fa-calendar-alt"></i>
-      </div>
+      </a>
+    </div>
     </div>
   </div>
 </header>
@@ -170,7 +171,7 @@
     <div class="col-lg-8">
       <main class="fadeinright">
         <h1 class="font-weight-bold">
-          Nestled in a breathtaking coastal bay, <br>Villa JIOTA<img src="/img/689020938.jpg" alt="Coastal View" class="inline-image img-fluid shadow-lg" style="width: 8rem; height: 4rem; object-fit: cover;">is the
+          Nestled in a breathtaking coastal bay, <br>Villa JIOTA<img src="/deluxe_suite_with_sea_view/689032053.jpg" alt="Coastal View" class="inline-image img-fluid shadow-lg" style="width: 8rem; height: 4rem; object-fit: cover;">is the
 
           ultimate escape for those <span class="light-text">seeking</span>
           <span class="light-text">peace and luxury.</span>
@@ -649,6 +650,18 @@
 
     // Start the typing animation
     type();
+  });
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const dateElement = document.getElementById('current-date');
+    const today = new Date();
+
+    // Format the date
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = today.toLocaleDateString('en-US', options);
+
+    dateElement.textContent = formattedDate;
   });
 </script>
 

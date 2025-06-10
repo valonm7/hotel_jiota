@@ -38,6 +38,7 @@
       font-size: 1.2rem;
       max-width: 600px;
       opacity: 0.9;
+      text-align: center;
     }
 
     .back-button {
@@ -89,9 +90,10 @@
 
     .room-carousel {
       position: relative;
-      height: 300px;
+      height: 300px; /* Fixed height for all carousels */
       flex: 1; /* Take up available space */
       min-width: 40%; /* Minimum width for the image section */
+      overflow: hidden; /* Ensure images don't overflow */
     }
 
     .room-image {
@@ -103,16 +105,14 @@
     .room-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* Changed from cover to contain to preserve aspect ratio */
       transition: transform 0.5s ease;
-      border-top-left-radius: 20px; /* Apply rounded corners to the top of the image */
-      border-bottom-left-radius: 20px; /* Apply rounded corners to the bottom left for the card */
+      border-radius: 20px; /* Apply rounded corners to all images */
+      max-height: 300px; /* Ensure consistent height */
+      background-color: #f8f9fa; /* Light background to fill empty space */
     }
 
-    .room-card:first-of-type .room-image img {
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-    }
+    /* No need for special case for first card as all images now have consistent styling */
 
     .room-card:hover .room-image img {
       transform: scale(1.1);
@@ -260,9 +260,7 @@
       }
 
       .room-image img {
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 0; /* Remove bottom-left radius when stacked */
+        border-radius: 20px; /* Consistent rounded corners */
       }
     }
 
@@ -776,6 +774,72 @@
     </div>
   </div>
 </div>
+
+
+
+<footer class="site-footer  text-white pt-5 pb-3">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="footer-logo mb-3">
+          <a href="index1.html">
+            <img src="logo1.png" width="80" height="80" alt="Footer Logo" class="img-fluid">
+          </a>
+        </div>
+        <p class="footer-description pe-4">
+          Discover unparalleled comfort and serene views at Vila JIOTA. Your perfect escape awaits.
+        </p>
+        <div class="social-icons mt-4">
+          <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="footer-heading text-uppercase mb-4">Quick Links</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="rooms.html" class="text-white text-decoration-none">Rooms</a></li>
+          <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+          <li><a href="gallery.html" class="text-white text-decoration-none">Gallery</a></li>
+          <li><a href="index.html#dining" class="text-white text-decoration-none">Dining</a></li>
+          <li><a href="index.html#contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="footer-heading text-uppercase mb-4">Contact Us</h5>
+        <ul class="list-unstyled footer-contact-info">
+          <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Rr. Ismail Qemali, Vlorë, Albania</li>
+          <li class="mb-2"><i class="fas fa-phone me-2"></i> +355 6x xxx xxxx</li>
+          <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@vilajiota.com</li>
+          <li><i class="fas fa-globe me-2"></i> www.vilajiota.com</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="footer-heading text-uppercase mb-4">Location</h5>
+        <div class="map-placeholder" style="height: 150px; background-color: #343a40; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7);">
+          <i class="fas fa-map-marked-alt fa-3x"></i>
+        </div>
+        <p class="mt-2 text-muted">
+          Visit us for an unforgettable experience.
+        </p>
+      </div>
+
+    </div>
+    <hr class="my-4 border-light-subtle">
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="mb-0 text-muted">&copy; <span id="year"></span> Vila JIOTA. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
