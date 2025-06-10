@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Rooms - Vila JIOTA</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .rooms-hero {
+      height: 60vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/689020517.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .rooms-hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .rooms-hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .back-button:hover {
+      background: white;
+      color: #2c3e50;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .rooms-container {
+      padding: 80px 0;
+    }
+
+    .room-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      margin-bottom: 40px;
+    }
+
+    .room-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    /* New Flexbox container for image and content */
+    .room-card-inner {
+      display: flex;
+      flex-direction: row; /* Default to row (image left, text right) */
+    }
+
+    .room-carousel {
+      position: relative;
+      height: 300px;
+      flex: 1; /* Take up available space */
+      min-width: 40%; /* Minimum width for the image section */
+    }
+
+    .room-image {
+      height: 100%; /* Make image container fill the carousel height */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .room-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      border-top-left-radius: 20px; /* Apply rounded corners to the top of the image */
+      border-bottom-left-radius: 20px; /* Apply rounded corners to the bottom left for the card */
+    }
+
+    .room-card:first-of-type .room-image img {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    .room-card:hover .room-image img {
+      transform: scale(1.1);
+    }
+
+    .carousel-navigation {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .carousel-navigation.left {
+      left: 20px;
+    }
+
+    .carousel-navigation.right {
+      right: 20px;
+    }
+
+    .carousel-btn {
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      color: #343a40; /* Darker color for visibility */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .carousel-btn:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+
+    .room-content {
+      padding: 30px;
+      flex: 1.5; /* Take up more space than the image */
+    }
+
+    .room-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .room-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin: 0;
+    }
+
+    .room-number {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .room-description {
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .room-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .feature-tag {
+      background: #e8f4fd;
+      color: #2c3e50;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .room-amenities {
+      margin-bottom: 25px;
+    }
+
+    .amenities-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .amenities-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .amenity-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #666;
+    }
+
+    .amenity-item i {
+      color: #2c3e50;
+      width: 20px;
+    }
+
+    .image-counter {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    /* Media query for smaller screens: stack elements vertically */
+    @media (max-width: 992px) { /* Changed from 768px to 992px for a smoother transition */
+      .room-card-inner {
+        flex-direction: column;
+      }
+
+      .room-carousel, .room-content {
+        flex: none; /* Remove flex sizing */
+        width: 100%; /* Take full width */
+        min-width: unset; /* Remove min-width restriction */
+      }
+
+      .room-image img {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0; /* Remove bottom-left radius when stacked */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .rooms-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .rooms-hero p {
+        font-size: 1rem;
+      }
+
+      .room-content {
+        padding: 20px;
+      }
+
+      .room-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .amenities-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="back-button">
+  <i class="fas fa-arrow-left"></i> Back to Home
+</a>
+
+<section class="rooms-hero">
+  <div class="container text-center">
+    <h1>Our Luxury Rooms</h1>
+    <p>Discover your perfect sanctuary with breathtaking views, premium amenities, and unparalleled comfort in every detail</p>
+  </div>
+</section>
+
+<div class="container rooms-container">
+  <div class="room-card" data-room-type="deluxe_apartaments_balcony">
+    <div class="room-card-inner"> <div class="room-carousel room-image">
+      <img src="deluxe_apartaments_balcony/689021212.jpg" alt="Deluxe Apartment with Balcony" class="room-main-image">
+      <div class="carousel-navigation left">
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <div class="carousel-navigation right">
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="image-counter">
+        <span class="current-image">1</span> / <span class="total-images">10</span>
+      </div>
+    </div>
+      <div class="room-content">
+        <div class="room-header">
+          <h2 class="room-title">Deluxe Apartment with Balcony</h2>
+          <span class="room-number">01</span>
+        </div>
+        <p class="room-description">
+          Wake up to breathtaking sunrise views from your private balcony. This spacious deluxe apartment features modern amenities, elegant furnishings, and direct access to stunning coastal vistas that will make your stay unforgettable.
+        </p>
+        <div class="room-features">
+          <span class="feature-tag">Sunrise View</span>
+          <span class="feature-tag">Private Balcony</span>
+          <span class="feature-tag">Ocean View</span>
+          <span class="feature-tag">Premium</span>
+        </div>
+        <div class="room-amenities">
+          <h3 class="amenities-title">Room Amenities</h3>
+          <div class="amenities-list">
+            <div class="amenity-item">
+              <i class="fas fa-wifi"></i>
+              <span>Free Wi-Fi</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-tv"></i>
+              <span>Smart TV</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-snowflake"></i>
+              <span>Air Conditioning</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-bath"></i>
+              <span>Private Bathroom</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-car"></i>
+              <span>Free Parking</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-utensils"></i>
+              <span>Kitchenette</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="room-card" data-room-type="triple_room">
+    <div class="room-card-inner"> <div class="room-carousel room-image">
+      <img src="triple_room/689027718.jpg" alt="Triple Room" class="room-main-image">
+      <div class="carousel-navigation left">
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <div class="carousel-navigation right">
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="image-counter">
+        <span class="current-image">1</span> / <span class="total-images">5</span>
+      </div>
+    </div>
+      <div class="room-content">
+        <div class="room-header">
+          <h2 class="room-title">Triple Room</h2>
+          <span class="room-number">02</span>
+        </div>
+        <p class="room-description">
+          Perfect for families or groups of friends, our triple room offers comfortable accommodation with three beds, modern amenities, and a warm, welcoming atmosphere that ensures everyone enjoys their coastal getaway.
+        </p>
+        <div class="room-features">
+          <span class="feature-tag">Family Friendly</span>
+          <span class="feature-tag">Three Beds</span>
+          <span class="feature-tag">Spacious</span>
+          <span class="feature-tag">Comfort</span>
+        </div>
+        <div class="room-amenities">
+          <h3 class="amenities-title">Room Amenities</h3>
+          <div class="amenities-list">
+            <div class="amenity-item">
+              <i class="fas fa-wifi"></i>
+              <span>Free Wi-Fi</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-tv"></i>
+              <span>Cable TV</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-snowflake"></i>
+              <span>Air Conditioning</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-bath"></i>
+              <span>Private Bathroom</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-car"></i>
+              <span>Free Parking</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-users"></i>
+              <span>Sleeps 3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="room-card" data-room-type="deluxe_suite_with_sea_view">
+    <div class="room-card-inner"> <div class="room-carousel room-image">
+      <img src="deluxe_suite_with_sea_view/689032030.jpg" alt="Deluxe Suite with Sea View" class="room-main-image">
+      <div class="carousel-navigation left">
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <div class="carousel-navigation right">
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="image-counter">
+        <span class="current-image">1</span> / <span class="total-images">25</span>
+      </div>
+    </div>
+      <div class="room-content">
+        <div class="room-header">
+          <h2 class="room-title">Deluxe Suite with Sea View</h2>
+          <span class="room-number">03</span>
+        </div>
+        <p class="room-description">
+          Experience ultimate luxury in our premium deluxe suite featuring panoramic sea views, sophisticated decor, and exclusive amenities. This is the perfect choice for a romantic getaway or special celebration.
+        </p>
+        <div class="room-features">
+          <span class="feature-tag">Sea View</span>
+          <span class="feature-tag">Luxury Suite</span>
+          <span class="feature-tag">Premium</span>
+          <span class="feature-tag">Romantic</span>
+        </div>
+        <div class="room-amenities">
+          <h3 class="amenities-title">Suite Amenities</h3>
+          <div class="amenities-list">
+            <div class="amenity-item">
+              <i class="fas fa-wifi"></i>
+              <span>Premium Wi-Fi</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-tv"></i>
+              <span>Smart TV</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-snowflake"></i>
+              <span>Climate Control</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-bath"></i>
+              <span>Luxury Bathroom</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-car"></i>
+              <span>Valet Parking</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-concierge-bell"></i>
+              <span>24/7 Room Service</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-cocktail"></i>
+              <span>Mini Bar</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-spa"></i>
+              <span>Spa Access</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="room-card" data-room-type="deluxe_apartament">
+    <div class="room-card-inner"> <div class="room-carousel room-image">
+      <img src="deluxe_apartament/689020877.jpg" alt="Deluxe Apartment" class="room-main-image">
+      <div class="carousel-navigation left">
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <div class="carousel-navigation right">
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="image-counter">
+        <span class="current-image">1</span> / <span class="total-images">13</span>
+      </div>
+    </div>
+      <div class="room-content">
+        <div class="room-header">
+          <h2 class="room-title">Deluxe Apartment</h2>
+          <span class="room-number">04</span>
+        </div>
+        <p class="room-description">
+          A sophisticated and spacious apartment designed for extended stays, featuring separate living areas, modern kitchen facilities, and elegant furnishings that create a home-away-from-home experience.
+        </p>
+        <div class="room-features">
+          <span class="feature-tag">Extended Stay</span>
+          <span class="feature-tag">Kitchen</span>
+          <span class="feature-tag">Living Area</span>
+          <span class="feature-tag">Modern</span>
+        </div>
+        <div class="room-amenities">
+          <h3 class="amenities-title">Apartment Amenities</h3>
+          <div class="amenities-list">
+            <div class="amenity-item">
+              <i class="fas fa-wifi"></i>
+              <span>High-Speed Wi-Fi</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-tv"></i>
+              <span>Smart TV</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-snowflake"></i>
+              <span>Air Conditioning</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-utensils"></i>
+              <span>Full Kitchen</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-couch"></i>
+              <span>Living Room</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-car"></i>
+              <span>Free Parking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="room-card" data-room-type="deluxe_double_room">
+    <div class="room-card-inner"> <div class="room-carousel room-image">
+      <img src="deluxe_double_room/689030100.jpg" alt="Deluxe Double Room" class="room-main-image">
+      <div class="carousel-navigation left">
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <div class="carousel-navigation right">
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="image-counter">
+        <span class="current-image">1</span> / <span class="total-images">14</span>
+      </div>
+    </div>
+      <div class="room-content">
+        <div class="room-header">
+          <h2 class="room-title">Deluxe Double Room</h2>
+          <span class="room-number">05</span>
+        </div>
+        <p class="room-description">
+          Elegantly appointed double room perfect for couples, featuring a comfortable king-size bed, modern amenities, and thoughtful touches that ensure a romantic and relaxing stay by the coast.
+        </p>
+        <div class="room-features">
+          <span class="feature-tag">Couples</span>
+          <span class="feature-tag">King Bed</span>
+          <span class="feature-tag">Romantic</span>
+          <span class="feature-tag">Cozy</span>
+        </div>
+        <div class="room-amenities">
+          <h3 class="amenities-title">Room Amenities</h3>
+          <div class="amenities-list">
+            <div class="amenity-item">
+              <i class="fas fa-wifi"></i>
+              <span>Free Wi-Fi</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-tv"></i>
+              <span>Flat Screen TV</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-snowflake"></i>
+              <span>Air Conditioning</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-bath"></i>
+              <span>Private Bathroom</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-bed"></i>
+              <span>King Size Bed</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-car"></i>
+              <span>Free Parking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="room-card" data-room-type="king_room_with_balcony">
+    <div class="room-card-inner"> <div class="room-carousel room-image">
+      <img src="king_room_with_balcony/689026885.jpg" alt="King Room with Balcony" class="room-main-image">
+      <div class="carousel-navigation left">
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <div class="carousel-navigation right">
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="image-counter">
+        <span class="current-image">1</span> / <span class="total-images">16</span>
+      </div>
+    </div>
+      <div class="room-content">
+        <div class="room-header">
+          <h2 class="room-title">King Room with Balcony</h2>
+          <span class="room-number">06</span>
+        </div>
+        <p class="room-description">
+          Spacious king room featuring a private balcony with stunning views, luxurious king-size bed, and premium amenities designed for ultimate comfort and relaxation during your coastal retreat.
+        </p>
+        <div class="room-features">
+          <span class="feature-tag">King Size</span>
+          <span class="feature-tag">Private Balcony</span>
+          <span class="feature-tag">Premium</span>
+          <span class="feature-tag">View</span>
+        </div>
+        <div class="room-amenities">
+          <h3 class="amenities-title">Room Amenities</h3>
+          <div class="amenities-list">
+            <div class="amenity-item">
+              <i class="fas fa-wifi"></i>
+              <span>Premium Wi-Fi</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-tv"></i>
+              <span>Smart TV</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-snowflake"></i>
+              <span>Climate Control</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-bath"></i>
+              <span>Luxury Bathroom</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-bed"></i>
+              <span>King Size Bed</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-car"></i>
+              <span>Free Parking</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-door-open"></i>
+              <span>Balcony Access</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-coffee"></i>
+              <span>Coffee Maker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="room-card" data-room-type="senior_triple_room">
+    <div class="room-card-inner"> <div class="room-carousel room-image">
+      <img src="senior_triple_room/689027284.jpg" alt="Senior Triple Room" class="room-main-image">
+      <div class="carousel-navigation left">
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <div class="carousel-navigation right">
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="image-counter">
+        <span class="current-image">1</span> / <span class="total-images">7</span>
+      </div>
+    </div>
+      <div class="room-content">
+        <div class="room-header">
+          <h2 class="room-title">Senior Triple Room</h2>
+          <span class="room-number">07</span>
+        </div>
+        <p class="room-description">
+          Our premium triple room offering enhanced space and comfort, perfect for families or groups seeking elevated accommodations with additional amenities and superior comfort for a memorable stay.
+        </p>
+        <div class="room-features">
+          <span class="feature-tag">Premium</span>
+          <span class="feature-tag">Three Beds</span>
+          <span class="feature-tag">Extra Space</span>
+          <span class="feature-tag">Family</span>
+        </div>
+        <div class="room-amenities">
+          <h3 class="amenities-title">Room Amenities</h3>
+          <div class="amenities-list">
+            <div class="amenity-item">
+              <i class="fas fa-wifi"></i>
+              <span>High-Speed Wi-Fi</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-tv"></i>
+              <span>Large Smart TV</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-snowflake"></i>
+              <span>Air Conditioning</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-bath"></i>
+              <span>Spacious Bathroom</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-users"></i>
+              <span>Sleeps 3</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-car"></i>
+              <span>Free Parking</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-chair"></i>
+              <span>Seating Area</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-coffee"></i>
+              <span>Coffee Station</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Room image data
+  const roomImages = {
+    'deluxe_apartaments_balcony': [
+      'deluxe_apartaments_balcony/689021206.jpg',
+      'deluxe_apartaments_balcony/689021209.jpg',
+      'deluxe_apartaments_balcony/689021212.jpg',
+      'deluxe_apartaments_balcony/689021214.jpg',
+      'deluxe_apartaments_balcony/689021217.jpg',
+      'deluxe_apartaments_balcony/689021222.jpg',
+      'deluxe_apartaments_balcony/689021223.jpg',
+      'deluxe_apartaments_balcony/689021224.jpg',
+      'deluxe_apartaments_balcony/689021225.jpg',
+      'deluxe_apartaments_balcony/689021230.jpg'
+    ],
+    'triple_room': [
+      'triple_room/689027716.jpg',
+      'triple_room/689027718.jpg',
+      'triple_room/689027732.jpg',
+      'triple_room/689027734.jpg',
+      'triple_room/689027814.jpg'
+    ],
+    'deluxe_suite_with_sea_view': [
+      'deluxe_suite_with_sea_view/689032013.jpg',
+      'deluxe_suite_with_sea_view/689032020.jpg',
+      'deluxe_suite_with_sea_view/689032022.jpg',
+      'deluxe_suite_with_sea_view/689032028.jpg',
+      'deluxe_suite_with_sea_view/689032029.jpg',
+      'deluxe_suite_with_sea_view/689032030.jpg',
+      'deluxe_suite_with_sea_view/689032036.jpg',
+      'deluxe_suite_with_sea_view/689032037.jpg',
+      'deluxe_suite_with_sea_view/689032039.jpg',
+      'deluxe_suite_with_sea_view/689032041.jpg',
+      'deluxe_suite_with_sea_view/689032043.jpg',
+      'deluxe_suite_with_sea_view/689032044.jpg',
+      'deluxe_suite_with_sea_view/689032045.jpg',
+      'deluxe_suite_with_sea_view/689032048.jpg',
+      'deluxe_suite_with_sea_view/689032049.jpg',
+      'deluxe_suite_with_sea_view/689032050.jpg',
+      'deluxe_suite_with_sea_view/689032051.jpg',
+      'deluxe_suite_with_sea_view/689032053.jpg',
+      'deluxe_suite_with_sea_view/689032054.jpg',
+      'deluxe_suite_with_sea_view/689032055.jpg',
+      'deluxe_suite_with_sea_view/689032056.jpg',
+      'deluxe_suite_with_sea_view/689032057.jpg',
+      'deluxe_suite_with_sea_view/689032058.jpg',
+      'deluxe_suite_with_sea_view/689032063.jpg',
+      'deluxe_suite_with_sea_view/689032065.jpg'
+    ],
+    'deluxe_apartament': [
+      'deluxe_apartament/689020877.jpg',
+      'deluxe_apartament/689020918.jpg',
+      'deluxe_apartament/689020920.jpg',
+      'deluxe_apartament/689020925.jpg',
+      'deluxe_apartament/689020928.jpg',
+      'deluxe_apartament/689020936.jpg',
+      'deluxe_apartament/689020938.jpg',
+      'deluxe_apartament/689020939.jpg',
+      'deluxe_apartament/689020940.jpg',
+      'deluxe_apartament/689020941.jpg',
+      'deluxe_apartament/689020945.jpg',
+      'deluxe_apartament/689020946.jpg',
+      'deluxe_apartament/689020948.jpg'
+    ],
+    'deluxe_double_room': [
+      'deluxe_double_room/689030100.jpg',
+      'deluxe_double_room/689030101.jpg',
+      'deluxe_double_room/689030105.jpg',
+      'deluxe_double_room/689030118.jpg',
+      'deluxe_double_room/689030127.jpg',
+      'deluxe_double_room/689030138.jpg',
+      'deluxe_double_room/689030144.jpg',
+      'deluxe_double_room/689030575.jpg',
+      'deluxe_double_room/689030576.jpg',
+      'deluxe_double_room/689030577.jpg',
+      'deluxe_double_room/689030579.jpg',
+      'deluxe_double_room/689030580.jpg',
+      'deluxe_double_room/689030581.jpg',
+      'deluxe_double_room/689030586.jpg'
+    ],
+    'king_room_with_balcony': [
+      'king_room_with_balcony/689026885.jpg',
+      'king_room_with_balcony/689026888.jpg',
+      'king_room_with_balcony/689026889.jpg',
+      'king_room_with_balcony/689026901.jpg',
+      'king_room_with_balcony/689026908.jpg',
+      'king_room_with_balcony/689027284.jpg',
+      'king_room_with_balcony/689027290.jpg',
+      'king_room_with_balcony/689027303.jpg',
+      'king_room_with_balcony/689027306.jpg',
+      'king_room_with_balcony/689027307.jpg',
+      'king_room_with_balcony/689027308.jpg',
+      'king_room_with_balcony/689027311.jpg',
+      'king_room_with_balcony/689027312.jpg',
+      'king_room_with_balcony/689027313.jpg',
+      'king_room_with_balcony/689027315.jpg'
+    ],
+    'senior_triple_room': [
+      'senior_triple_room/689027284.jpg',
+      'senior_triple_room/689027308.jpg',
+      'senior_triple_room/689027312.jpg',
+      'senior_triple_room/689031293.jpg',
+      'senior_triple_room/689031294.jpg',
+      'senior_triple_room/689031295.jpg',
+      'senior_triple_room/689031296.jpg'
+    ]
+  };
+
+  // Initialize carousels for all rooms
+  document.addEventListener('DOMContentLoaded', function() {
+    const roomCards = document.querySelectorAll('.room-card');
+
+    roomCards.forEach(card => {
+      const roomType = card.getAttribute('data-room-type');
+      const images = roomImages[roomType];
+      let currentImageIndex = 0;
+
+      const img = card.querySelector('.room-main-image');
+      const prevBtn = card.querySelector('.prev-btn');
+      const nextBtn = card.querySelector('.next-btn');
+      const currentImageSpan = card.querySelector('.current-image');
+      const totalImagesSpan = card.querySelector('.total-images');
+
+      // Set total images count
+      totalImagesSpan.textContent = images.length;
+
+      // Previous button click handler
+      prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        img.src = images[currentImageIndex];
+        currentImageSpan.textContent = currentImageIndex + 1;
+
+        // Add transition effect
+        img.style.opacity = '0.7';
+        setTimeout(() => {
+          img.style.opacity = '1';
+        }, 150);
+      });
+
+      // Next button click handler
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        img.src = images[currentImageIndex];
+        currentImageSpan.textContent = currentImageIndex + 1;
+
+        // Add transition effect
+        img.style.opacity = '0.7';
+        setTimeout(() => {
+          img.style.opacity = '1';
+        }, 150);
+      });
+
+      // Set initial image index based on current src
+      const currentSrc = img.src.split('/').slice(-2).join('/');
+      const initialIndex = images.findIndex(imagePath => imagePath.includes(currentSrc.split('/')[1]));
+      if (initialIndex !== -1) {
+        currentImageIndex = initialIndex;
+        currentImageSpan.textContent = currentImageIndex + 1;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

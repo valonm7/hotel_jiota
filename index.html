@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Horizon Bay Resort - Where Serenity Meets Luxury</title>
+  <title>Villa JIOTA - Where Serenity Meets Luxury</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,6 +20,98 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Enhanced View All Rooms Button */
+    .view-all-rooms {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 18px;
+      box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3);
+      transition: all 0.3s ease;
+      margin-left: auto;
+      margin-right: 0;
+      border: 2px solid transparent;
+      animation: bounce 2s infinite;
+    }
+
+    .view-all-rooms:hover {
+      background: linear-gradient(135deg, #34495e, #2c3e50);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(44, 62, 80, 0.4);
+      text-decoration: none;
+    }
+
+    .view-all-rooms i {
+      margin-left: 12px;
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .view-all-rooms:hover i {
+      transform: translateX(5px);
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Rooms header styling to match the main title */
+    .rooms-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .rooms-header h2 {
+      font-weight: bold;
+      font-size: 3rem;
+      color: #2c3e50;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .rooms-header p {
+      margin: 0;
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .rooms-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .view-all-rooms {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .rooms-header h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -52,7 +144,7 @@
     </h1>
     <p class="hero-subtitle">Discover a serene coastal retreat with breathtaking views, world-class service, and unforgettable experiences</p>
     <a href="#rooms" class="bouncing-arrow">
-      <i class="fas fa-chevron-down"></i>
+
     </a>
   </div>
 
@@ -65,102 +157,252 @@
 
 
 
-
-<div class="container py-5 px-4">
-  <div class="row align-items-start">
-    <div class="col-lg-6">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
       <header class="mb-5 d-flex align-items-center fadeinleft">
-        <div class="border border-dark-subtle rounded-3 py-2 px-4 text-sm-medium text-dark">
+        <div class="border border-dark-subtle rounded-3 py-2 px-4 text-medium text-dark villa-jiota-badge">
           Vila Jiota
         </div>
       </header>
     </div>
 
-    <div class="col-lg-6">
+    <div class="col-lg-8">
       <main class="fadeinright">
-        <h1 class="font-weight-bold lh-tight">
-          Nestled in a breathtaking coastal bay, Vila Jiota<img src="/img/689020938.jpg" alt="Coastal View" class="inline-image img-fluid shadow-lg" style="width: 6rem; height: 4rem; object-fit: cover;">is the
+        <h1 class="font-weight-bold">
+          Nestled in a breathtaking coastal bay, <br>Villa JIOTA<img src="/img/689020938.jpg" alt="Coastal View" class="inline-image img-fluid shadow-lg" style="width: 8rem; height: 4rem; object-fit: cover;">is the
 
           ultimate escape for those <span class="light-text">seeking</span>
           <span class="light-text">peace and luxury.</span>
         </h1>
+        <br><br><br><br><br>
+        <section class="amenities" id="amenities">
+          <div class="amenity fadeinleft">
+            <div class="amenity-icon">
+              <img src="img/sunrise.png" alt="Beach" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
+            </div>
+            <h3 style="color: #000000;">Beachfront Location</h3>
+          </div>
+          <div class="amenity fade-in">
+            <div class="amenity-icon">
+              <i class="fas fa-bed" style="color: #000000;"></i>
+            </div>
+            <h3 style="color: #000000;">Great Accommodations</h3>
+          </div>
+          <div class="amenity fade-in">
+            <div class="amenity-icon">
+              <i class="fas fa-concierge-bell" style="color: #000000;"></i>
+            </div>
+            <h3 style="color: #000000;">Convenient Facilities</h3>
+          </div>
+          <div class="amenity fadeinright">
+            <div class="amenity-icon">
+              <i class="fas fa-map-marker-alt" style="color: #000000;"></i>
+            </div>
+            <h3 style="color: #000000;">Nearby Attractions</h3>
+          </div>
+          <div>
+            <p>
+              Finding both
+            </p>
+          </div>
+          <br><br><br><br><br>
+        </section>
       </main>
     </div>
   </div>
+</div>
 
 
 
-  <section class="amenities" id="amenities">
-    <div class="amenity fadeinleft">
-      <div class="amenity-icon">
-        <img src="img/sunrise.png" alt="Beach" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
-      </div>
-      <h3 style="color: #000000;">Beachfront Location</h3>
-    </div>
-    <div class="amenity fade-in">
-      <div class="amenity-icon">
-        <i class="fas fa-bed" style="color: #000000;"></i>
-      </div>
-      <h3 style="color: #000000;">Comfortable Accommodations</h3>
-    </div>
-    <div class="amenity fade-in">
-      <div class="amenity-icon">
-        <i class="fas fa-concierge-bell" style="color: #000000;"></i>
-      </div>
-      <h3 style="color: #000000;">Convenient Facilities</h3>
-    </div>
-    <div class="amenity fadeinright">
-      <div class="amenity-icon">
-        <i class="fas fa-map-marker-alt" style="color: #000000;"></i>
-      </div>
-      <h3 style="color: #000000;">Nearby Attractions</h3>
-    </div>
-  </section>
-
-
-  <section class="rooms-section" id="rooms">
-    <div class="rooms-header fadeindown">
+<!-- Rooms Section -->
+<section class="rooms-section" id="rooms">
+  <div class="rooms-header fadeindown">
+    <div>
       <h2>Stay in Paradise</h2>
       <p>Choose your perfect accommodation from elegant suites to private villas with ocean views</p>
     </div>
-    <div class="rooms-grid">
-      <div class="room-card glass-card fadeinleft">
-        <div class="room-image">
-          <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Oceanview Suite">
-        </div>
-        <h3 class="room-title">Oceanview Suite</h3>
-        <p class="room-description">Luxury suite featuring panoramic ocean views and your private balcony.</p>
-      </div>
-      <div class="room-card glass-card fade-in">
-        <div class="room-image">
-          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Private Pool Villa">
-        </div>
-        <h3 class="room-title">Private Pool Villa</h3>
-        <p class="room-description">Secluded villa with private infinity pool and 24-hour butler service.</p>
-      </div>
-      <div class="room-card glass-card fadeinright">
-        <div class="room-image">
-          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Garden Retreat Room">
-        </div>
-        <h3 class="room-title">Garden Retreat Room</h3>
-        <p class="room-description">Tranquil garden setting with direct access to tropical gardens.</p>
-      </div>
-    </div>
-  </section>
+    <a href="rooms.html" class="view-all-rooms" id="viewAllRoomsLink">
+      View all Rooms
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
 
-  <section class="restaurant-section" id="dining">
-    <div class="restaurant-grid">
-      <div class="restaurant-image fadeinleft">
-        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Restaurant">
+  <div class="rooms-grid">
+    <div class="room-card-image-style" data-room-type="deluxe_apartaments_balcony">
+      <div class="room-card-header-image-style">
+        <span class="room-number">01</span>
+        <div class="room-tags">
+          <span class="tag">Sunrise</span>
+          <span class="tag">Balcony</span>
+        </div>
       </div>
-      <div class="restaurant-content fadeinright">
-        <h2>A Taste of the Ocean</h2>
-        <p>Indulge in exquisite coastal flavors from the freshest ingredients, curated by world-renowned chefs.</p>
-        <a href="#" class="cta-button">Seafood</a>
+      <div class="room-image-carousel">
+        <img src="deluxe_apartaments_balcony/689021212.jpg" alt="Oceanview Suite">
+        <div class="carousel-navigation">
+          <button class="arrow-button left-arrow">&#8592;</button>
+          <button class="arrow-button right-arrow">&#8594;</button>
+        </div>
+      </div>
+      <div class="room-details-image-style">
+        <h3 class="room-title-image-style">Deluxe Apartament with Balcony</h3>
+        <p class="room-description-image-style">Wake up to breathtaking sunrise views from your private balcony.</p>
       </div>
     </div>
-  </section>
+    <div class="room-card-image-style" data-room-type="triple_room">
+      <div class="room-card-header-image-style">
+        <span class="room-number">02</span>
+        <div class="room-tags">
+          <span class="tag">Sunrise</span>
+          <span class="tag">Balcony</span>
+        </div>
+      </div>
+      <div class="room-image-carousel">
+        <img src="triple_room/689027718.jpg" alt="Triple Room">
+        <div class="carousel-navigation">
+          <button class="arrow-button left-arrow">&#8592;</button>
+          <button class="arrow-button right-arrow">&#8594;</button>
+        </div>
+      </div>
+      <div class="room-details-image-style">
+        <h3 class="room-title-image-style">Triple Room</h3>
+        <p class="room-description-image-style">Wake up to breathtaking sunrise views from your private balcony.</p>
+      </div>
+    </div>
+    <div class="room-card-image-style" data-room-type="deluxe_suite_with_sea_view">
+      <div class="room-card-header-image-style">
+        <span class="room-number">03</span>
+        <div class="room-tags">
+          <span class="tag">Sunrise</span>
+          <span class="tag">Balcony</span>
+        </div>
+      </div>
+      <div class="room-image-carousel">
+        <img src="deluxe_suite_with_sea_view/689032030.jpg" alt="Oceanview Suite">
+        <div class="carousel-navigation">
+          <button class="arrow-button left-arrow">&#8592;</button>
+          <button class="arrow-button right-arrow">&#8594;</button>
+        </div>
+      </div>
+      <div class="room-details-image-style">
+        <h3 class="room-title-image-style">Deluxe suite with Sea View</h3>
+        <p class="room-description-image-style">Wake up to breathtaking sunrise views from your private balcony.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW Section for large image below rooms -->
+<section class="rooms-bottom-image">
+  <img src="img/689020517.jpg" alt="Luxurious Villa Overview">
+</section>
+
+
+
+<!-- Placeholder for Restaurant Section -->
+<section class="restaurant-section" id="restaurant">
+  <div class="restaurant-grid">
+    <div class="restaurant-content">
+      <h2>Exquisite Dining Experiences</h2>
+      <p>Savor culinary delights crafted from the freshest local ingredients, with breathtaking views of the bay.</p>
+      <a href="#" class="cta-button">View Menu</a>
+    </div>
+    <div class="restaurant-image glass-card">
+      <img src="https://placehold.co/600x400/cccccc/333333?text=Restaurant" alt="Restaurant Interior">
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<section class="restaurant-section" id="dining">
+  <div class="restaurant-grid">
+    <div class="restaurant-image fadeinleft">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Restaurant">
+    </div>
+    <div class="restaurant-content fadeinright">
+      <h2>A Taste of the Ocean</h2>
+      <p>Indulge in exquisite coastal flavors from the freshest ingredients, curated by world-renowned chefs.</p>
+      <a href="#" class="cta-button">Seafood</a>
+    </div>
+  </div>
+</section>
 </div>
+
+
+
+<footer class="site-footer  text-white pt-5 pb-3">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="footer-logo mb-3">
+          <a href="index1.html">
+            <img src="logo1.png" width="80" height="80" alt="Footer Logo" class="img-fluid">
+          </a>
+        </div>
+        <p class="footer-description pe-4">
+          Discover unparalleled comfort and serene views at Vila JIOTA. Your perfect escape awaits.
+        </p>
+        <div class="social-icons mt-4">
+          <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="footer-heading text-uppercase mb-4">Quick Links</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#about" class="text-white text-decoration-none">Rooms</a></li>
+          <li><a href="#menu" class="text-white text-decoration-none">Menu</a></li>
+          <li><a href="#gallery" class="text-white text-decoration-none">Gallery</a></li>
+          <li><a href="#blog" class="text-white text-decoration-none">Blog</a></li>
+          <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="footer-heading text-uppercase mb-4">Contact Us</h5>
+        <ul class="list-unstyled footer-contact-info">
+          <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Rr. Ismail Qemali, Vlorë, Albania</li>
+          <li class="mb-2"><i class="fas fa-phone me-2"></i> +355 6x xxx xxxx</li>
+          <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@vilajiota.com</li>
+          <li><i class="fas fa-globe me-2"></i> www.vilajiota.com</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="footer-heading text-uppercase mb-4">Location</h5>
+        <div class="map-placeholder" style="height: 150px; background-color: #343a40; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7);">
+          <i class="fas fa-map-marked-alt fa-3x"></i>
+        </div>
+        <p class="mt-2 text-muted">
+          Visit us for an unforgettable experience.
+        </p>
+      </div>
+
+    </div>
+    <hr class="my-4 border-light-subtle">
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="mb-0 text-muted">&copy; <span id="year"></span> Vila JIOTA. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -170,6 +412,104 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
 
 <script>
+  // Room image carousel data
+  const roomImages = {
+    'deluxe_apartaments_balcony': [
+      'deluxe_apartaments_balcony/689021206.jpg',
+      'deluxe_apartaments_balcony/689021209.jpg',
+      'deluxe_apartaments_balcony/689021212.jpg',
+      'deluxe_apartaments_balcony/689021214.jpg',
+      'deluxe_apartaments_balcony/689021217.jpg',
+      'deluxe_apartaments_balcony/689021222.jpg',
+      'deluxe_apartaments_balcony/689021223.jpg',
+      'deluxe_apartaments_balcony/689021224.jpg',
+      'deluxe_apartaments_balcony/689021225.jpg',
+      'deluxe_apartaments_balcony/689021230.jpg'
+    ],
+    'triple_room': [
+      'triple_room/689027716.jpg',
+      'triple_room/689027718.jpg',
+      'triple_room/689027732.jpg',
+      'triple_room/689027734.jpg',
+      'triple_room/689027814.jpg'
+    ],
+    'deluxe_suite_with_sea_view': [
+      'deluxe_suite_with_sea_view/689032013.jpg',
+      'deluxe_suite_with_sea_view/689032020.jpg',
+      'deluxe_suite_with_sea_view/689032022.jpg',
+      'deluxe_suite_with_sea_view/689032028.jpg',
+      'deluxe_suite_with_sea_view/689032029.jpg',
+      'deluxe_suite_with_sea_view/689032030.jpg',
+      'deluxe_suite_with_sea_view/689032036.jpg',
+      'deluxe_suite_with_sea_view/689032037.jpg',
+      'deluxe_suite_with_sea_view/689032039.jpg',
+      'deluxe_suite_with_sea_view/689032041.jpg',
+      'deluxe_suite_with_sea_view/689032043.jpg',
+      'deluxe_suite_with_sea_view/689032044.jpg',
+      'deluxe_suite_with_sea_view/689032045.jpg',
+      'deluxe_suite_with_sea_view/689032048.jpg',
+      'deluxe_suite_with_sea_view/689032049.jpg',
+      'deluxe_suite_with_sea_view/689032050.jpg',
+      'deluxe_suite_with_sea_view/689032051.jpg',
+      'deluxe_suite_with_sea_view/689032053.jpg',
+      'deluxe_suite_with_sea_view/689032054.jpg',
+      'deluxe_suite_with_sea_view/689032055.jpg',
+      'deluxe_suite_with_sea_view/689032056.jpg',
+      'deluxe_suite_with_sea_view/689032057.jpg',
+      'deluxe_suite_with_sea_view/689032058.jpg',
+      'deluxe_suite_with_sea_view/689032063.jpg',
+      'deluxe_suite_with_sea_view/689032065.jpg'
+    ]
+  };
+
+  // Initialize room carousels
+  document.addEventListener('DOMContentLoaded', function() {
+    const roomCards = document.querySelectorAll('.room-card-image-style');
+
+    roomCards.forEach(card => {
+      const roomType = card.getAttribute('data-room-type');
+      const images = roomImages[roomType];
+      let currentImageIndex = 0;
+
+      const img = card.querySelector('.room-image-carousel img');
+      const leftArrow = card.querySelector('.left-arrow');
+      const rightArrow = card.querySelector('.right-arrow');
+
+      // Left arrow click handler
+      leftArrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        img.src = images[currentImageIndex];
+
+        // Add transition effect
+        img.style.opacity = '0.7';
+        setTimeout(() => {
+          img.style.opacity = '1';
+        }, 150);
+      });
+
+      // Right arrow click handler
+      rightArrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        img.src = images[currentImageIndex];
+
+        // Add transition effect
+        img.style.opacity = '0.7';
+        setTimeout(() => {
+          img.style.opacity = '1';
+        }, 150);
+      });
+
+      // Set initial image index based on current src
+      const currentSrc = img.src.split('/').slice(-2).join('/');
+      const initialIndex = images.findIndex(imagePath => imagePath.includes(currentSrc.split('/')[1]));
+      if (initialIndex !== -1) {
+        currentImageIndex = initialIndex;
+      }
+    });
+  });
+
   // Smooth scrolling for navigation links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
