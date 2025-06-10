@@ -91,3 +91,57 @@ elements3.forEach(elements3 =>{
     observer3.observe(elements3);
 })
 
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const phrases = [
+        'Serenity Meets Luxury',
+        'Dreams Come True',
+        'Paradise Awaits',
+        'Tranquility Begins'
+    ];
+
+    const typewriter = document.getElementById('typewriter');
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
+    let deleteSpeed = 50;
+    let pauseBetweenPhrases = 2000;
+
+    function type() {
+        const currentPhrase = phrases[currentPhraseIndex];
+
+        if (isDeleting) {
+            // Deleting characters
+            typewriter.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+            currentCharIndex--;
+
+            if (currentCharIndex === 0) {
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                setTimeout(type, 500); // Pause before typing next phrase
+                return;
+            }
+
+            setTimeout(type, deleteSpeed);
+        } else {
+            // Typing characters
+            typewriter.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+            currentCharIndex++;
+
+            if (currentCharIndex === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(type, pauseBetweenPhrases);
+                return;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+    }
+
+    // Start the typing animation
+    type();
+});
+

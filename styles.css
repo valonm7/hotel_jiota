@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -149,10 +150,11 @@ body {
 
 .hero h1 {
     font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 300;
+    font-weight: bold;
     color: white;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    font-family: 'Inter', sans-serif;
 }
 
 .hero-subtitle {
@@ -552,7 +554,7 @@ body {
 }
 
 
-inline-image {
+.inline-image {
     display: inline-block; /* Allows image to sit within text flow */
     vertical-align: middle; /* Aligns image with the middle of the surrounding text */
     margin-left: 0.5rem; /* Space between text and image */
@@ -567,23 +569,69 @@ inline-image {
     font-size: 3.5rem; /* Approx. 5xl */
 }
 
-
+/* Typewriter Animation */
 #typewriter {
-    border-right: 2px solid;
+    border-right: 2px solid white;
     animation: blink 1s infinite;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    color: white;
 }
 
 @keyframes blink {
     0%, 50% { border-color: transparent; }
-    51%, 100% { border-color: currentColor; }
+    51%, 100% { border-color: white; }
 }
 
 .typewriter-cursor {
     display: inline-block;
     width: 2px;
-    background-color: currentColor;
+    background-color: white;
     animation: blink 1s infinite;
 }
 
+/* Animation classes for scroll effects */
+.fadeinleft {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease-out;
+}
 
+.fadeinright {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease-out;
+}
 
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.fadeindown {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.8s ease-out;
+}
+
+/* Active states for animations */
+.active-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.active-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.active-down {
+    opacity: 1;
+    transform: translateY(0);
+}

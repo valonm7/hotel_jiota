@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,7 @@
 </header>
 
 <section class="hero" id="home">
-  <div class="hero-content">
+  <div class="hero-content fade-in">
     <h1 class="font-weight-bold lh-tight" style="color: white;">
       Where <span id="typewriter"></span>
     </h1>
@@ -48,50 +49,44 @@
   </div>
 </section>
 
+<div class="container py-5 px-4">
+  <header class="mb-5 d-flex align-items-center fadeinleft">
+    <div class="border border-secondary-subtle rounded-3 py-2 px-4 text-sm-medium text-secondary">
+      Horizon Bay Resort
+    </div>
+  </header>
 
+  <main class="row g-5 g-lg-4 align-items-start">
+    <div class="d-none d-lg-block col-lg-6">
+    </div>
 
+    <div class="col-lg-6 fadeinright">
+      <h1 class="font-weight-bold lh-tight ">
+        Nestled in a breathtaking coastal bay, Horizon Bay Resort<img src="/img/689020938.jpg" alt="Coastal View" class="inline-image img-fluid rounded-3 shadow-lg" style="width: 6rem; height: 4rem; object-fit: cover;">is the
 
+        ultimate escape for those <span class="light-text">seeking</span></span>
+        <span class="d-block light-text">peace and luxury.</span>
+      </h1>
+    </div>
+  </main>
 
-  <div class="container py-5 px-4">
-    <header class="mb-5 d-flex align-items-center">
-      <div class="border border-secondary-subtle rounded-3 py-2 px-4 text-sm-medium text-secondary">
-        Horizon Bay Resort
-      </div>
-    </header>
-
-    <main class="row g-5 g-lg-4 align-items-start">
-      <div class="d-none d-lg-block col-lg-6">
-      </div>
-
-      <div class="col-lg-6">
-        <h1 class="font-weight-bold lh-tight ">
-          Nestled in a breathtaking coastal bay, Horizon Bay Resort<img src="/img/689020938.jpg" alt="Coastal View" class="inline-image img-fluid rounded-3 shadow-lg" style="width: 6rem; height: 4rem; object-fit: cover;">is the
-
-          ultimate escape for those <span class="light-text">seeking</span></span>
-          <span class="d-block light-text">peace and luxury.</span>
-        </h1>
-      </div>
-    </main>
-
-
-
-  <section class="amenities">
-    <div class="amenity">
+  <section class="amenities" id="amenities">
+    <div class="amenity fadeinleft">
       <div class="amenity-icon">🏖️</div>
       <h3>Private Beach</h3>
       <p>Exclusive beachfront access</p>
     </div>
-    <div class="amenity">
+    <div class="amenity fade-in">
       <div class="amenity-icon">🌊</div>
       <h3>Ocean Views</h3>
       <p>Panoramic sea vistas</p>
     </div>
-    <div class="amenity">
+    <div class="amenity fade-in">
       <div class="amenity-icon">🍽️</div>
       <h3>Seaside Dining</h3>
       <p>Gourmet coastal cuisine</p>
     </div>
-    <div class="amenity">
+    <div class="amenity fadeinright">
       <div class="amenity-icon">🧘</div>
       <h3>Exclusive Spa</h3>
       <p>Wellness and relaxation</p>
@@ -99,26 +94,26 @@
   </section>
 
   <section class="rooms-section" id="rooms">
-    <div class="rooms-header">
+    <div class="rooms-header fadeindown">
       <h2>Stay in Paradise</h2>
       <p>Choose your perfect accommodation from elegant suites to private villas with ocean views</p>
     </div>
     <div class="rooms-grid">
-      <div class="room-card glass-card">
+      <div class="room-card glass-card fadeinleft">
         <div class="room-image">
           <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Oceanview Suite">
         </div>
         <h3 class="room-title">Oceanview Suite</h3>
         <p class="room-description">Luxury suite featuring panoramic ocean views and your private balcony.</p>
       </div>
-      <div class="room-card glass-card">
+      <div class="room-card glass-card fade-in">
         <div class="room-image">
           <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Private Pool Villa">
         </div>
         <h3 class="room-title">Private Pool Villa</h3>
         <p class="room-description">Secluded villa with private infinity pool and 24-hour butler service.</p>
       </div>
-      <div class="room-card glass-card">
+      <div class="room-card glass-card fadeinright">
         <div class="room-image">
           <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Garden Retreat Room">
         </div>
@@ -130,18 +125,26 @@
 
   <section class="restaurant-section" id="dining">
     <div class="restaurant-grid">
-      <div class="restaurant-image">
+      <div class="restaurant-image fadeinleft">
         <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Restaurant">
       </div>
-      <div class="restaurant-content">
+      <div class="restaurant-content fadeinright">
         <h2>A Taste of the Ocean</h2>
         <p>Indulge in exquisite coastal flavors from the freshest ingredients, curated by world-renowned chefs.</p>
         <a href="#" class="cta-button">Seafood</a>
       </div>
     </div>
   </section>
+</div>
 
-</div> <script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
+<script>
   // Smooth scrolling for navigation links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -156,36 +159,70 @@
     });
   });
 
-  // Intersection Observer for animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
+  // Enhanced Intersection Observer animations from main.js
+  const elements = document.querySelectorAll('.fadeinleft');
+  const elements1 = document.querySelectorAll('.fade-in');
+  const elements2 = document.querySelectorAll('.fadeinright');
+  const elements3 = document.querySelectorAll('.fadeindown');
 
-  const observer = new IntersectionObserver((entries) => {
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: .4
+  }
+
+  const callbacks = (entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+      if(entry.isIntersecting){
+        entry.target.classList.add('active-left');
       }
     });
-  }, observerOptions);
+  }
 
-  // Observe animated elements
-  // Removed .villa-content-container, .villa-image-container as they are not used in the new structure
-  document.querySelectorAll('.room-card, .restaurant-content, .restaurant-image, .amenity').forEach(el => {
-    observer.observe(el);
-  });
+  const callbacks1 = (entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('active');
+      }
+    });
+  }
 
-  // IMPORTANT: Remove or comment out this JavaScript for parallax on the hero,
-  // as `position: fixed` handles it and this might conflict.
-  // window.addEventListener('scroll', () => {
-  //   const scrolled = window.pageYOffset;
-  //   const hero = document.querySelector('.hero');
-  //   if (hero) {
-  //     hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-  //   }
-  // });
+  const callbacks2 = (entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('active-right');
+      }
+    });
+  }
+
+  const callbacks3 = (entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('active-down');
+      }
+    });
+  }
+
+  let observer = new IntersectionObserver(callbacks, options);
+  let observer1 = new IntersectionObserver(callbacks1, options);
+  let observer2 = new IntersectionObserver(callbacks2, options);
+  let observer3 = new IntersectionObserver(callbacks3, options);
+
+  elements.forEach(elements => {
+    observer.observe(elements);
+  })
+
+  elements1.forEach(elements1 => {
+    observer1.observe(elements1);
+  })
+
+  elements2.forEach(elements2 => {
+    observer2.observe(elements2);
+  })
+
+  elements3.forEach(elements3 => {
+    observer3.observe(elements3);
+  })
 
   // Header background on scroll
   window.addEventListener('scroll', () => {
@@ -196,15 +233,8 @@
       header.style.background = 'rgba(255, 255, 255, 0.1)';
     }
   });
-</script>
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-<script>
+  // Typewriter animation
   document.addEventListener('DOMContentLoaded', function() {
     const phrases = [
       'Serenity Meets Luxury',
