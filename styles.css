@@ -113,8 +113,9 @@ body {
     justify-content: center;
     position: relative;
     padding: 2rem;
-    background: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background: url("img/689020572.jpg") center/cover no-repeat;
 }
+
 
 .hero::before {
     content: '';
@@ -565,3 +566,24 @@ inline-image {
 .display-6-custom {
     font-size: 3.5rem; /* Approx. 5xl */
 }
+
+
+#typewriter {
+    border-right: 2px solid;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { border-color: transparent; }
+    51%, 100% { border-color: currentColor; }
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    background-color: currentColor;
+    animation: blink 1s infinite;
+}
+
+
+
