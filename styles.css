@@ -2021,3 +2021,14 @@ testimonials {
     }
 }
 
+.scrolling-text span {
+    font-size: clamp(2rem, 7vw, 7rem);
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+
+
+
+
