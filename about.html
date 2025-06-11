@@ -10,6 +10,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="mobile-nav.js" defer></script>
 
   <style>
     body {
@@ -223,21 +224,27 @@
 <header class="header">
   <div class="nav-container">
     <a href="index.html" class="logo">Vila JIOTA</a>
+    <div class="hamburger">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
     <nav>
       <ul class="nav-menu">
         <li><a href="index.html">+ Home</a></li>
-        <li><a href="rooms.html">+ Rooms</a></li>
+        <li><a href="index.html#rooms">+ Rooms</a></li>
         <li><a href="gallery.html">+ Gallery</a></li>
         <li><a href="about.html">+ About US</a></li>
-        <li><a href="contact.html">+ Contact</a></li>
+        <li><a href="index.html#contact">+ Contact</a></li>
       </ul>
     </nav>
     <div class="date-badge">
-      <span class="date-text" id="current-date"></span> <div class="icon-wrapper">
-      <a href="availability.html">
-        <i class="fas fa-calendar-alt"></i>
-      </a>
-    </div>
+      <span class="date-text" id="current-date"></span>
+      <div class="icon-wrapper">
+        <a href="availability.html">
+          <i class="fas fa-calendar-alt"></i>
+        </a>
+      </div>
     </div>
   </div>
 </header>
@@ -354,13 +361,13 @@
   </div>
 </div>
 
-<footer class="site-footer text-white pt-5 pb-3">
+<footer class="site-footer  text-white pt-5 pb-3">
   <div class="container">
     <div class="row">
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="footer-logo mb-3">
-          <a href="index.html">
+          <a href="index1.html">
             <img src="logo1.png" width="80" height="80" alt="Footer Logo" class="img-fluid">
           </a>
         </div>
@@ -378,10 +385,11 @@
       <div class="col-lg-2 col-md-6 mb-4">
         <h5 class="footer-heading text-uppercase mb-4">Quick Links</h5>
         <ul class="list-unstyled footer-links">
-          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="rooms.html" class="text-white text-decoration-none">Rooms</a></li>
-          <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
-          <li><a href="gallery.html" class="text-white text-decoration-none">Gallery</a></li>
+          <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#about" class="text-white text-decoration-none">Rooms</a></li>
+          <li><a href="#menu" class="text-white text-decoration-none">Menu</a></li>
+          <li><a href="#gallery" class="text-white text-decoration-none">Gallery</a></li>
+          <li><a href="#blog" class="text-white text-decoration-none">Blog</a></li>
           <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
         </ul>
       </div>
@@ -397,25 +405,23 @@
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <h5 class="footer-heading text-uppercase mb-4">Location</h5>
-        <div class="map-placeholder" style="height: 150px; background-color: #343a40; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7);">
-          <i class="fas fa-map-marked-alt fa-3x"></i>
-        </div>
-        <p class="mt-2 text-muted">
-          Visit us for an unforgettable experience.
-        </p>
+        <h5 class="footer-heading text-uppercase mb-4">Location</h5><i class="fas fa-map-marked-alt fa-3x"></i>
+        <iframe class ="map-placeholder" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3066.6895276521054!2d20.000919700000004!3d39.7690787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b6a2cc5274531%3A0x95ccf6d7b0976e90!2sVilla%20JIOTA%2C%20Ksamil!5e0!3m2!1sen!2s!4v1749591792133!5m2!1sen!2s" style="height: 200px; background-color: #343a40; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7);"></iframe>
       </div>
-
+      <p class="mt-2 text-muted">
+        Visit us for an unforgettable experience.
+      </p>
     </div>
-    <hr class="my-4 border-light-subtle">
-    <div class="row">
-      <div class="col-12 text-center">
-        <p class="mb-0 text-muted">&copy; <span id="year"></span> Vila JIOTA. All Rights Reserved.</p>
-      </div>
+
+  </div>
+  <hr class="my-4 border-light-subtle">
+  <div class="row">
+    <div class="col-12 text-center">
+      <p class="mb-0 text-muted">&copy; <span id="year"></span> Vila JIOTA. All Rights Reserved.</p>
     </div>
   </div>
+  </div>
 </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   // Set current year in footer
