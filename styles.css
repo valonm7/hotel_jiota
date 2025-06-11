@@ -1950,3 +1950,50 @@ testimonials {
     border-radius: 50%;
     object-fit: cover;
 }
+
+
+
+
+
+
+
+.scroll-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo {
+    width: 80%;
+    height: auto;
+    z-index: 1;
+}
+
+.text-track {
+    position: absolute;
+    width: 200%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 4vw;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.top-text {
+    top: 10%;
+}
+
+.bottom-text {
+    bottom: 10%;
+}
+
+.text-loop {
+    display: inline-block;
+    animation: none;
+    will-change: transform;
+    color: #114366;
+}
+

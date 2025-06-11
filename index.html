@@ -235,7 +235,7 @@
       <div class="date-badge">
         <span class="date-text" id="current-date"></span>
         <div class="lang-switcher">
-          <img src="img/en-flag.png" alt="English" class="flag-icon">
+          <a href="index-sq.html" class="lang-switcher-link"><img src="img/en-flag.png" alt="English" class="flag-icon"></a>
         </div>
       </div>
     </div>
@@ -448,11 +448,24 @@
   </div>
 </section>
 
-<!-- NEW Section for large image below rooms -->
-<section class="rooms-bottom-image">
-  <img src="img/689020517.jpg" alt="Luxurious Villa Overview">
-</section>
 
+
+
+  <!-- NEW Section for large image below rooms -->
+
+  <div class="scroll-container">
+    <div class="text-track top-text">
+      <div class="text-loop">Villa JIOTA • Villa JIOTA • Villa JIOTA • Villa JIOTA •Villa JIOTA • Villa JIOTA • Villa JIOTA</div>
+    </div>
+
+    <section class="rooms-bottom-image">
+      <img src="img/689020517.jpg" alt="Luxurious Villa Overview">
+    </section>
+
+    <div class="text-track bottom-text">
+      <div class="text-loop">Villa JIOTA • Villa JIOTA • Villa JIOTA • Villa JIOTA •Villa JIOTA • Villa JIOTA • Villa JIOTA</div>
+    </div>
+  </div>
 
 <br><br><br><br>
 
@@ -1012,6 +1025,25 @@
         clickable: true,
       },
     });
+
+
+  let lastScrollY = window.scrollY;
+  let topOffset = 0;
+  let bottomOffset = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const direction = currentScrollY > lastScrollY ? 1 : -1;
+
+    topOffset += direction * -2;    // Top goes left on scroll down
+    bottomOffset += direction * 2;  // Bottom goes right on scroll down
+
+    document.querySelector('.top-text .text-loop').style.transform = `translateX(${topOffset}px)`;
+    document.querySelector('.bottom-text .text-loop').style.transform = `translateX(${bottomOffset}px)`;
+
+    lastScrollY = currentScrollY;
+  });
+
 
 
 
