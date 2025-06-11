@@ -1145,26 +1145,41 @@ body {
 /* New style for the white box containing the bouncing arrow */
 .scroll-indicator-box {
     background: white;
-    padding: 10px;
+    padding: 0; /* Remove padding to ensure the arrow is centered */
     border-radius: 15px; /* Rounded corners for the box */
-    display: inline-flex; /* To wrap content */
+    display: flex; /* Changed to flex for better centering */
     align-items: center;
     justify-content: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 1s ease-out 0.5s both; /* Appear with a fade */
-    position: absolute; /* Position relative to hero */
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute !important; /* Position relative to hero */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     bottom: 30px; /* Position it at the bottom of the hero section, adjusted from screenshot */
-    z-index: 2; /* Make sure it's above the gradients */
+    z-index: 10 !important; /* Make sure it's above everything */
+    width: 80px !important; /* Fixed width to ensure proper centering */
+    height: 80px !important; /* Fixed height to ensure proper centering */
+    margin-left: 0 !important; /* Reset any margin that might affect centering */
+    margin-right: 0 !important; /* Reset any margin that might affect centering */
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 .bouncing-arrow {
     font-size: 1.5rem; /* Larger arrow */
     color: #114366; /* Dark blue color for the arrow */
     text-decoration: none;
-    display: block; /* To apply bounce animation */
+    display: flex; /* Changed to flex for better centering */
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Take full width of parent */
+    height: 100%; /* Take full height of parent */
     animation: bounce 2s infinite; /* Apply bounce animation */
+}
+
+.bouncing-arrow i {
+    display: block; /* Ensure the icon is a block element */
+    text-align: center; /* Center the icon */
+    margin: 0 auto; /* Center horizontally */
 }
 
 @keyframes bounce {
@@ -1446,21 +1461,28 @@ body {
     padding: 10px;
     z-index: 1000;
     position: fixed;
-    left: 20px;
+    right: 20px;
     top: 20px;
+     /* Darker background for better visibility */
+    border-radius: 5px;
 }
 
 .hamburger-line {
-    width: 25px;
-    height: 3px;
-    background-color: #2c3e50;
-    margin: 5px 0;
+    width: 30px;
+    height: 4px;
+    background-color: #ffffff; /* White color for better visibility */
+    margin: 6px 0;
     transition: all 0.3s ease;
+     /* Stronger shadow for better visibility */
 }
 
 @media (max-width: 768px) {
     .hamburger {
         display: block;
+        background-color: rgba(0, 0, 0, 0.2); /* Darker background for better visibility */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px 12px; /* Increased padding for better touch target */
+
     }
 
     .nav-menu {
@@ -1469,7 +1491,7 @@ body {
         left: -100%;
         width: 80%;
         height: 100vh;
-        background: rgba(65, 34, 155, 0.95);
+        background: #114366;
         backdrop-filter: blur(10px);
         flex-direction: column;
         align-items: center;
@@ -1704,9 +1726,25 @@ testimonials {
     .carousel-control-next {
         display: none;
     }
+
+    /* Ensure the bouncy arrow is centered on mobile */
+    .scroll-indicator-box {
+        background: white;
+        padding: 0; /* Remove padding to ensure the arrow is centered */
+        border-radius: 15px; /* Rounded corners for the box */
+        display: flex; /* Changed to flex for better centering */
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: absolute !important; /* Position relative to hero */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: 30px; /* Position it at the bottom of the hero section */
+        z-index: 10 !important; /* Make sure it's above everything */
+        width: 40px !important; /* Fixed width to ensure proper centering */
+        height: 40px !important; /* Fixed height to ensure proper centering */
+        margin-left: 0 !important; /* Reset any margin that might affect centering */
+        margin-right: 0 !important; /* Reset any margin that might affect centering */
+        overflow: hidden; /* Ensure content doesn't overflow */
+    }
 }
-
-
-
-
-

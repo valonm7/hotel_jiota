@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Navigation Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .instructions {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        .note {
+            background-color: #fffde7;
+            padding: 10px;
+            border-left: 4px solid #ffd600;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo"> 
+                <img src="logo1.png" width="160" height="80" alt="Logo">
+            </a>
+            <div class="hamburger">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#">+ Home</a></li>
+                    <li><a href="#">+ Rooms</a></li>
+                    <li><a href="#">+ Gallery</a></li>
+                    <li><a href="#">+ About US</a></li>
+                    <li><a href="#">+ Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Mobile Navigation Demo</h1>
+        <p>This page demonstrates how to use the mobile navigation functionality. Try clicking on the hamburger menu in the top-right corner to see the mobile navigation in action.</p>
+        
+        <div class="instructions">
+            <h2>How to Add Mobile Navigation to Your Site</h2>
+            <p>To add the mobile navigation functionality to your site, follow these steps:</p>
+            <ol>
+                <li>Include the styles.css file in your HTML:</li>
+                <pre>&lt;link rel="stylesheet" href="styles.css"&gt;</pre>
+                
+                <li>Add the following HTML structure for your navigation:</li>
+                <pre>
+&lt;header class="header"&gt;
+    &lt;div class="nav-container"&gt;
+        &lt;a href="#" class="logo"&gt; 
+            &lt;img src="logo1.png" width="160" height="80" alt="Logo"&gt;
+        &lt;/a&gt;
+        &lt;div class="hamburger"&gt;
+            &lt;div class="hamburger-line"&gt;&lt;/div&gt;
+            &lt;div class="hamburger-line"&gt;&lt;/div&gt;
+            &lt;div class="hamburger-line"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;nav&gt;
+            &lt;ul class="nav-menu"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;+ Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;+ Rooms&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;+ Gallery&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;+ About US&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;+ Contact&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/div&gt;
+&lt;/header&gt;</pre>
+                
+                <li>Include the nav-loader.js script at the end of your HTML, just before the closing body tag:</li>
+                <pre>&lt;script src="nav-loader.js"&gt;&lt;/script&gt;</pre>
+            </ol>
+        </div>
+        
+        <div class="note">
+            <h3>Note</h3>
+            <p>The nav-loader.js script automatically loads the mobile-nav.js file, which contains the JavaScript code for the mobile navigation functionality.</p>
+        </div>
+    </div>
+
+    <!-- Include the nav-loader.js script -->
+    <script src="nav-loader.js"></script>
+</body>
+</html>

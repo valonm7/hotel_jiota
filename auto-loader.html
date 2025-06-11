@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Loader</title>
+</head>
+<body>
+    <h1>Mobile Navigation Loader</h1>
+    <p>This file contains a script that automatically loads the mobile-nav.js file.</p>
+    <p>To use this functionality, add the following script tag to your HTML file:</p>
+    <pre>
+    &lt;script&gt;
+        // Create a script element to load mobile-nav.js
+        const script = document.createElement('script');
+        script.src = 'mobile-nav.js';
+        script.async = true;
+
+        // Append the script to the document
+        document.body.appendChild(script);
+    &lt;/script&gt;
+    </pre>
+
+    <!-- Load the mobile-nav.js file for this page -->
+    <script>
+        // Create a script element
+        const script = document.createElement('script');
+        script.src = 'mobile-nav.js';
+        script.async = true;
+
+        // Append the script to the document
+        document.body.appendChild(script);
+    </script>
+</body>
+</html>
