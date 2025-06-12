@@ -1477,7 +1477,7 @@ body {
 }
 
 .hamburger.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(77, 76, 76, 0.2);
 }
 
 .hamburger-line {
@@ -2370,5 +2370,21 @@ testimonials {
       width: 95%; /* Make cards take up more width on very small screens */
     }
   }
+
+@media (max-width: 768px) {
+  .text-track {
+    display: none;
+  }
+  
+  .scroll-container {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .rooms-bottom-image {
+    margin: 0;
+    padding: 0;
+  }
+}
 
 
