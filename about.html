@@ -151,8 +151,6 @@
       margin-bottom: 15px;
     }
 
-
-
     .social-icons a:hover {
       color: #114366;
       transform: translateY(-3px);
@@ -212,6 +210,78 @@
       .about-image {
         height: 300px;
       }
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .testimonial-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .testimonial-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-content {
+      background: white;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author h5 {
+      margin: 0;
+      color: #2c3e50;
+    }
+
+    .testimonial-author small {
+      color: #666;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    .gallery-item img {
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -312,7 +382,129 @@
   </div>
 </div>
 
+<section class="testimonials-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">What Our Guests Say</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card">
+          <div class="testimonial-image">
+            <img src="img/689020572.jpg" alt="Guest Experience" class="img-fluid rounded">
+          </div>
+          <div class="testimonial-content p-4">
+            <div class="rating mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="testimonial-text">"An absolutely amazing stay! The villa is beautiful, the location is perfect, and the staff went above and beyond to make our stay memorable."</p>
+            <div class="testimonial-author">
+              <h5>Sarah & John</h5>
+              <small>United Kingdom</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card">
+          <div class="testimonial-image">
+            <img src="img/689020574.jpg" alt="Guest Experience" class="img-fluid rounded">
+          </div>
+          <div class="testimonial-content p-4">
+            <div class="rating mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="testimonial-text">"The perfect blend of luxury and comfort. The views are breathtaking, and the beach is just steps away. We can't wait to come back!"</p>
+            <div class="testimonial-author">
+              <h5>Maria & Paolo</h5>
+              <small>Italy</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card">
+          <div class="testimonial-image">
+            <img src="img/689020575.jpg" alt="Guest Experience" class="img-fluid rounded">
+          </div>
+          <div class="testimonial-content p-4">
+            <div class="rating mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="testimonial-text">"A hidden gem in Ksamil! The villa exceeded our expectations in every way. The attention to detail and hospitality were outstanding."</p>
+            <div class="testimonial-author">
+              <h5>Thomas & Emma</h5>
+              <small>Germany</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="gallery-section py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Our Beautiful Location</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="gallery-item">
+          <img src="img/ksamil.jpg" alt="Ksamil Beach" class="img-fluid rounded shadow">
+          <div class="gallery-caption">
+            <h4>Stunning Ksamil Beach</h4>
+            <p>Just steps away from our villa</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="gallery-item">
+          <img src="img/689020579.jpg" alt="Villa View" class="img-fluid rounded shadow">
+          <div class="gallery-caption">
+            <h4>Panoramic Views</h4>
+            <p>Breathtaking scenery from our villa</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="amenities" id="amenities">
+  <div class="amenity ">
+    <div class="amenity-icon">
+      <img src="img/sunrise.png" alt="Beach" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
+    </div>
+    <h3 style="color: #000000;">Beachfront Location</h3>
+  </div>
+  <div class="amenity n">
+    <div class="amenity-icon">
+      <i class="fas fa-bed" style="color: #000000;"></i>
+    </div>
+    <h3 style="color: #000000;">Great Accommodations</h3>
+  </div>
+  <div class="amenity ">
+    <div class="amenity-icon">
+      <i class="fas fa-concierge-bell" style="color: #000000;"></i>
+    </div>
+    <h3 style="color: #000000;">Convenient Facilities</h3>
+  </div>
+  <div class="amenity ">
+    <div class="amenity-icon">
+      <i class="fas fa-map-marker-alt" style="color: #000000;"></i>
+    </div>
+    <h3 style="color: #000000;">Nearby Attractions</h3>
+  </div>
+</section>
 
 <footer class="site-footer text-white pt-5 pb-3">
   <div class="container">
@@ -329,10 +521,9 @@
             Experience unparalleled luxury and breathtaking views at Villa JIOTA. Your perfect coastal retreat awaits in the heart of Ksamil.
           </p>
           <div class="social-icons">
-            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/p/Villa-Jiota-100042530005796/" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/villa_jiota/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.link/huwkzt" class="social-icon" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
@@ -363,11 +554,7 @@
           </li>
           <li class="d-flex align-items-center justify-content-center mb-3">
             <i class="fas fa-envelope me-3"></i>
-            <span>info@vilajiota.com</span>
-          </li>
-          <li class="d-flex align-items-center justify-content-center">
-            <i class="fas fa-globe me-3"></i>
-            <span>www.vilajiota.com</span>
+            <span>vilajiota@gmail.com</span>
           </li>
         </ul>
       </div>
@@ -393,16 +580,10 @@
         <p class="copyright-text mb-0">
           &copy; <span id="year"></span> Villa JIOTA. All Rights Reserved.  Powered By<a href="https://www.intermedia.al/" target="_blank"><span><img src="img/intermedia.png" alt="" class="img-fluid" style="width: 120px;"></span></a></h6>
         </p>
-        
-      </div>
       </div>
     </div>
   </div>
 </footer>
-
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
