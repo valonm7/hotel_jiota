@@ -1926,7 +1926,7 @@ testimonials {
 /* Language Switcher Styles */
 .lang-switcher {
     cursor: pointer;
-    padding: 8px;
+    padding: 3px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -1983,11 +1983,11 @@ testimonials {
 }
 
 .top-text {
-    top: 10%;
+    top: 9%;
 }
 
 .bottom-text {
-    bottom: 10%;
+    bottom: 9%;
 }
 
 .text-loop {
@@ -2042,6 +2042,138 @@ testimonials {
 
 
 
+
+
+
+
+
+
+
+
+/* Footer Styles */
+.site-footer {
+  background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-heading {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+
+.footer-description {
+  color: #b3b3b3;
+  line-height: 1.6;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: #ffffff;
+  color: #2c3e50;
+  transform: translateY(-3px);
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #b3b3b3;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.footer-contact-info li {
+  color: #b3b3b3;
+}
+
+.footer-contact-info i {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.newsletter-form .form-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+}
+
+.newsletter-form .form-control::placeholder {
+  color: #b3b3b3;
+}
+
+.newsletter-form .btn {
+  background: #ffffff;
+  color: #2c3e50;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form .btn:hover {
+  background: #2c3e50;
+  color: #ffffff;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.copyright-text {
+  color: #b3b3b3;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer-heading {
+    margin-top: 2rem;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .footer-links, .footer-contact-info {
+    text-align: center;
+  }
+  
+  .footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
 
 
