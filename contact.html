@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jiota is a boutique hotel in Ksamil of Saranda, operating all year round.  The hotel has a long history and through the years it has truly immersed in the free-spirited culture of Saranda and its niche tourism.  It clearly stands out because it specializes in experienced hosting with attention to detail while promoting the nature-inspired art installations around its premises.">
+  <meta name="keywords" content="jiota, resort, villas, villa, beach, ksamil, ksmail resort, hotels, nature, peaceful, travel, hospitality, hotellife, luxury, vacation, restaurant, holiday, tourism, luxuryhotel, hotelroom, travelgram, hotelier, restaurants, hoteldesign, interiordesign, luxuryhotels, summer, resorts, food, resort, design, beach, love, instagood, luxurytravel, architecture, hoteliers, hotelsandresorts,relax, lifestyle, trip, holidays, traveling, hoteles, beautifulhotels,staycation, wanderlust, turismo, beautifuldestinations, spa, hotelstyle, events">
   <link rel="shortcut icon" type="x-icon" href="logo1.png">
   <title>Contact Us - Vila JIOTA</title>
 
@@ -10,6 +12,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="mobile-nav.js" defer></script>
+  <script src="language-switcher.js" defer></script>
 
   <style>
     body {
@@ -259,7 +263,7 @@
     <div class="col-lg-6">
       <div class="contact-card">
         <h2>Send Us a Message</h2>
-        <form class="contact-form">
+        <form class="contact-form" id="fcf-form-id" action="https://formsubmit.co/villajiota@gmail.com">
           <div class="mb-3">
             <label for="name" class="form-label">Your Name</label>
             <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
@@ -409,6 +413,32 @@
     }
   });
 </script>
+
+
+<script src="assets/js/jquery-3.5.1.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/jquery.fancybox.min.js"></script>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" id="closeMenu">
+    <i class="fas fa-times"></i>
+  </button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#rooms">Rooms</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="date-badge">
+    <span class="date-text" id="current-date"></span>
+  </div>
+  <div class="mobile-lang-switcher">
+    <a href="gallery-sq.html">
+      <img src="img/sq-flag.png" alt="Albanian" class="flag-icon">
+    </a>
+  </div>
+</div>
 
 </body>
 </html>
