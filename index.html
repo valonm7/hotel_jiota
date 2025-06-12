@@ -401,7 +401,7 @@
       <h2 class="left-title">Stay in Paradise</h2>
       <p>Choose your perfect accommodation from elegant suites to private villas with ocean views</p>
     </div>
-    <a href="rooms.html" class="view-all-rooms" id="viewAllRoomsLink">
+    <a href="rooms.html" class="view-all-rooms" id="viewAllRoomsLink" style="color: white;">
       View all Rooms
       <i class="fas fa-arrow-right"></i>
     </a>
@@ -448,8 +448,8 @@
       <div class="room-card-header-image-style">
         <span class="room-number">02</span>
         <div class="room-tags">
-          <span class="tag">Sunrise</span>
-          <span class="tag">Balcony</span>
+          <span class="tag">Great Size</span>
+          <span class="tag">Kitchen</span>
         </div>
       </div>
       <div class="room-image-carousel">
@@ -479,7 +479,7 @@
       <div class="room-card-header-image-style">
         <span class="room-number">03</span>
         <div class="room-tags">
-          <span class="tag">Sunrise</span>
+          <span class="tag">Sea View</span>
           <span class="tag">Balcony</span>
         </div>
       </div>
@@ -1280,10 +1280,26 @@
 <script src="assets/js/swiper-bundle.min.js"></script>
 <script src="assets/js/jquery.fancybox.min.js"></script>
 
-
-
-
-
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" id="closeMenu">
+    <i class="fas fa-times"></i>
+  </button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#rooms">Rooms</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="date-badge">
+    <span class="date-text" id="current-date"></span>
+  </div>
+  <div class="mobile-lang-switcher">
+    <a href="index-sq.html">
+      <img src="img/sq-flag.png" alt="Albanian" class="flag-icon">
+    </a>
+  </div>
+</div>
 
 </body>
 </html>
