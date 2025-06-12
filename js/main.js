@@ -95,12 +95,13 @@ elements3.forEach(elements3 =>{
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const phrases = [
-        'Serenity Meets Luxury',
-        'Dreams Come True',
-        'Paradise Awaits',
-        'Tranquility Begins'
-    ];
+
+const phrases = [
+    'Qetësia Takon Luksin',
+    'Ëndrrat Bëhen Realitet',
+    'Parajsa Ju Pret',
+    'Qetësia Fillon'
+];
 
     const typewriter = document.getElementById('typewriter');
     let currentPhraseIndex = 0;
