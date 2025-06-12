@@ -1160,7 +1160,7 @@ body {
     position: absolute !important; /* Position relative to hero */
     left: 50% !important;
     transform: translateX(-50%) !important;
-    bottom: 30px; /* Position it at the bottom of the hero section, adjusted from screenshot */
+    bottom: 150px; /* Position it at the bottom of the hero section, adjusted from screenshot */
     z-index: 10 !important; /* Make sure it's above everything */
     width: 80px !important; /* Fixed width to ensure proper centering */
     height: 80px !important; /* Fixed height to ensure proper centering */
@@ -2027,6 +2027,19 @@ testimonials {
     white-space: nowrap;
     display: inline-block;
 }
+
+
+
+.map-fullscreen {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
+.contact {
+    padding: 0;
+}
+
+
 
 
 
