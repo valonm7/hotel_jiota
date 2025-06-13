@@ -2211,10 +2211,21 @@ testimonials {
     padding: 0;
     margin: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .mobile-menu ul li {
     margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobile-menu ul li:last-child {
+    margin-bottom: 0;
 }
 
 .mobile-menu ul li a {
@@ -2231,20 +2242,45 @@ testimonials {
     color: #34495e;
 }
 
+/* Updated mobile date badge styles */
 .mobile-menu .date-badge {
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .mobile-menu .date-text {
-    font-size: 18px;
+    font-size: 16px;
     color: #2c3e50;
-    margin-bottom: 15px;
-    display: block;
+    margin: 0;
+}
+
+.mobile-menu .icon-wrapper {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-menu .icon-wrapper i {
+    color: white;
+    font-size: 15px;
 }
 
 .mobile-menu .lang-switcher {
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .mobile-menu .lang-switcher img {
